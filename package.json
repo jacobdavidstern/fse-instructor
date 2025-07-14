@@ -1,0 +1,13 @@
+{
+  "name": "fse-instructor",
+  "private": true,
+  "description": "Instructor-led bootcamp projects from Codecademy's Full Stack Engineer program.",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "type": "module",
+  "keywords": ["full-stack", "bootcamp", "codecademy", "node", "projects"],
+  "author": "Jacob Stern",
+  "license": "CC0-1.0"
+}
