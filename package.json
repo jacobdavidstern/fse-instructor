@@ -1,13 +1,32 @@
 {
   "name": "fse-instructor",
-  "private": true,
-  "description": "Instructor-led bootcamp projects from Codecademy's Full Stack Engineer program.",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
-  },
-  "type": "module",
-  "keywords": ["full-stack", "bootcamp", "codecademy", "node", "projects"],
+  "description": "Instructor-led showcase in CommonJS mode from Codecademy's Full Stack Engineer program.",
   "author": "Jacob Stern",
-  "license": "MIT"
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "homepage": "https://github.com/jacobdavidstern/fse-instructor#readme",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
+  },
+  "keywords": [
+    "full-stack-engineer",
+    "bootcamp",
+    "showcase"
+  ],
+  "devDependencies": {
+    "@awmottaz/prettier-plugin-void-html": "^1.9.0",
+    "@eslint/js": "^9.34.0",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-n": "^17.21.3",
+    "eslint-plugin-prettier": "^5.5.4",
+    "htmlhint": "^1.6.3",
+    "prettier": "^3.6.2"
+  }
 }
