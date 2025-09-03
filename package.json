@@ -8,10 +8,17 @@
   "type": "commonjs",
   "homepage": "https://github.com/jacobdavidstern/fse-instructor#readme",
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "lint": "eslint . --ext .js,.cjs",
+    "format": "prettier --config prettier.config.cjs --write .",
+    "check:prettier": "prettier --check .",
+    "check:eslint": "eslint . --ext .js,.cjs",
+    "prettier:testfile": "touch ./test.js && prettier --find-config-path ./test.js",
+    "prettier:force": "prettier --config ./prettier.config.cjs --write ./test.js",
+    "prettier:checkfile": "prettier --check ./test.js",
+    "prettier:checkall": "prettier --check .",
+    "prettier:validate": "npm run prettier:testfile && npm run prettier:force && npm run prettier:checkfile && npm run prettier:checkall",
+    "validate": "eslint coursework sandbox --ext .js,.cjs,.mjs && prettier --check coursework sandbox config && npm test",
+    "test": "echo \"TBD test\" && exit 0"
   },
   "keywords": [
     "full-stack-engineer",
@@ -22,8 +29,9 @@
     "@awmottaz/prettier-plugin-void-html": "^1.9.0",
     "@eslint/js": "^9.34.0",
     "eslint": "^9.34.0",
-    "eslint-config-prettier": "^9.1.2",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-markdown": "^5.1.0",
     "eslint-plugin-n": "^17.21.3",
     "eslint-plugin-prettier": "^5.5.4",
     "htmlhint": "^1.6.3",
