@@ -40,7 +40,8 @@ module.exports = [
     },
     rules: {
       // Enforce Prettier formatting using your Prettier config
-      'prettier/prettier': ['warn', prettierConfig],
+      // 'prettier/prettier': ['warn', prettierConfig],
+      'prettier/prettier': 'error',
 
       // Example ESLint rules
       'comma-dangle': 'off',

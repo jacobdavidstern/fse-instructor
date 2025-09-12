@@ -2,6 +2,6 @@
 sandbox/*
 !sandbox/.gitkeep
 
-# privatize coursework/ folder
-coursework/*
-!coursework/.gitkeep
+# privatize bootcamp/ folder
+bootcamp/*
+!bootcamp/.gitkeep

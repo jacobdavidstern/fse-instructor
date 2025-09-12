@@ -9,6 +9,7 @@
   "homepage": "https://github.com/jacobdavidstern/fse-instructor#readme",
   "scripts": {
     "lint": "eslint . --ext .js,.cjs",
+    "lint:htmlhint": "htmlhint '**/*.html'",
     "format": "prettier --config prettier.config.cjs --write .",
     "check:prettier": "prettier --check .",
     "check:eslint": "eslint . --ext .js,.cjs",

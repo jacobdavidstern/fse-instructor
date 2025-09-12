@@ -1,31 +1,6 @@
-### Prettier testing
+# TESTING.md
 
-Create test file
-`touch ./test.js`
-
-Verify which config file is being used
-`npx prettier --find-config-path ./test.js`
-
-Run Prettier with a specific config file on a specific file
-`npx prettier --config ./.prettier.config.cjs --write ./test.js`
-
-Check if a single file passes the Prettier configuration
-`npx prettier --check ./test.js`
-
-Check if entire repo passes the Prettier configuration
-`npx prettier --check .`
-
-```sh
-npm run prettier:testfile
-npm run prettier:force
-npm run prettier:checkfile
-npm run prettier:checkall
-```
-
-Warning! Overwrite all files in repo with current Prettier config
-`npx prettier --write .`
-
-### Repo Dependency Update & Validation Workflow with ncu
+### 01. Dependency Update Workflow - where changes begin
 
 Install npm-check-updates
 
@@ -43,7 +18,7 @@ Install npm-check-updates
 Update with ncu
 
 - Review available updates:
-  - `npx npm-check-updates
+  - `npx npm-check-updates`
   - `npm install --save-dev npm-check-updates`
 
 Apply updates:
@@ -51,19 +26,7 @@ Apply updates:
 - `npx npm-check-updates -u`
 - `npm install`
 
-Verify Lint + Format Harmony
-
-- `npx eslint . --ext .js,.cjs,.mjs`
-- `npx prettier --check .`
-- No new errors/warnings
-- Prettier output matches ESLint expectations
-
-Check Peer Dependencies
-
-- `npm ls eslint prettier`
-- Confirm versions satisfy updated package peer ranges
-
-Run Tests
+### 02. Post-Update Checklist - confirming operational
 
 - `npm test`
 - All tests pass — no regressions
@@ -89,7 +52,7 @@ Optional: One‑Shot Validation Script
 - Run after ncu:
   - npm run validate
 
-Cleanup
+### 03. Cleanup Tasks
 
 - Remove and reinstall dependencies:
   - `rm -rf node_modules package-lock.json`
@@ -103,3 +66,50 @@ Cleanup
 - Clear npm cache
   - `npm cache clean --force`
   - Affects local cache to speed up installs, doesn't touch /node_modules
+
+### 04. Lint Validation - ESLint config and error checks
+
+- `npx eslint . --ext .js,.cjs,.mjs`
+- `npx prettier --check .`
+- No new errors/warnings
+- Prettier output matches ESLint expectations
+
+Check Peer Dependencies
+
+- `npm ls eslint prettier`
+- Confirm versions satisfy updated package peer ranges
+
+### 05. Prettier Validation - formatting consistency and config resolution
+
+Create test file
+`touch ./test.js`
+
+Verify which config file is being used
+`npx prettier --find-config-path ./test.js`
+
+Run Prettier with a specific config file on a specific file
+`npx prettier --config ./.prettier.config.cjs --write ./test.js`
+
+Check if a single file passes the Prettier configuration
+`npx prettier --check ./test.js`
+
+Check if entire repo passes the Prettier configuration
+`npx prettier --check .`
+
+```sh
+npm run prettier:testfile     # Format test.js using repo config
+npm run prettier:force        # Overwrite all files with current config
+npm run prettier:checkfile    # Check formatting of test.js
+npm run prettier:checkall     # Check formatting across entire repo
+
+```
+
+Warning! Overwrite all files in repo with current Prettier config
+`npx prettier --write .`
+
+### 06. Config Drift - Notes
+
+- ESLint + Prettier quote/comma rules harmonized across:
+  - fse-instructor repo - Common JS (CJS)
+  - fse-learning repo - ES Module (ESM)
+- `.eslintrc.cjs` and `.prettierrc.cjs` updated for consistency
