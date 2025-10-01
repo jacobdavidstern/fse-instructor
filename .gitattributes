@@ -4,17 +4,12 @@
 # -text: disables line-ending normalization (avoids diffs on CRLF vs LF)
 # export-ignore: exclude from git archive, although empty folders remain visible on github
 
-coursework/.gitkeep export-ignore
-coursework/.gitkeep linguist-generated
-coursework/.gitkeep -text
-coursework/ export-ignore
+bootcamp/.gitkeep export-ignore
+bootcamp/.gitkeep linguist-generated
+bootcamp/.gitkeep -text
+bootcamp/ export-ignore
 
 sandbox/.gitkeep export-ignore
 sandbox/.gitkeep linguist-generated
 sandbox/.gitkeep -text
 sandbox/ export-ignore
-
-submitted/.gitkeep export-ignore
-submitted/.gitkeep linguist-generated
-submitted/.gitkeep -text
-submitted/ export-ignore

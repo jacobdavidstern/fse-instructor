@@ -1,0 +1,31 @@
+header {
+  grid-area: header;
+  background-color: beige;
+  height: 50px;
+}
+
+footer {
+  grid-area: footer;
+  background-color: aqua;
+  height: 50px;
+}
+
+main {
+  grid-area: main;
+  background-color: brown;
+  height: 50px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: chartreuse;
+}
+
+body {
+  display:grid;
+  grid-template-areas: 
+    "header header header"
+    "main main sidebar"
+    "main main sidebar"
+    "footer footer footer"
+}

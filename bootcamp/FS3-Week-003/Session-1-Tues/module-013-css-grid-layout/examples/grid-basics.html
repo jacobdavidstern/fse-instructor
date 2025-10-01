@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .example {
+            margin-bottom: 40px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .grid-container {
+            display: grid;
+            gap: 10px;
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .grid-item {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        
+        /* Basic 3-column grid */
+        .basic-grid {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        
+        /* Fixed and flexible columns */
+        .mixed-grid {
+            grid-template-columns: 200px 1fr 100px;
+        }
+        
+        /* Repeat function */
+        .repeat-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        /* Grid with rows defined */
+        .rows-grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 100px 150px;
+        }
+        
+        /* Minmax for responsive sizing */
+        .minmax-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        /* Positioning specific items */
+        .positioned-grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 100px);
+        }
+        
+        .span-item {
+            grid-column: span 2;
+            background-color: #FF9800;
+        }
+        
+        .positioned-item {
+            grid-column: 2 / 4;
+            grid-row: 2 / 4;
+            background-color: #9C27B0;
+        }
+        
+        /* Named areas */
+        .area-grid {
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 80px 200px 60px;
+            grid-template-areas: 
+                "header header header"
+                "sidebar main aside"
+                "footer footer footer";
+        }
+        
+        .header-area { grid-area: header; background-color: #2196F3; }
+        .sidebar-area { grid-area: sidebar; background-color: #FF5722; }
+        .main-area { grid-area: main; background-color: #4CAF50; }
+        .aside-area { grid-area: aside; background-color: #FFC107; }
+        .footer-area { grid-area: footer; background-color: #607D8B; }
+    </style>
+</head>
+<body>
+    <h1>CSS Grid Layout Examples</h1>
+    
+    <div class="example">
+        <h2>1. Basic 3-Column Grid</h2>
+        <div class="grid-container basic-grid">
+            <div class="grid-item">Item 1</div>
+            <div class="grid-item">Item 2</div>
+            <div class="grid-item">Item 3</div>
+            <div class="grid-item">Item 4</div>
+            <div class="grid-item">Item 5</div>
+            <div class="grid-item">Item 6</div>
+        </div>
+        <p><strong>Code:</strong> grid-template-columns: 1fr 1fr 1fr;</p>
+    </div>
+    
+    <div class="example">
+        <h2>2. Mixed Column Sizes</h2>
+        <div class="grid-container mixed-grid">
+            <div class="grid-item">200px Fixed</div>
+            <div class="grid-item">Flexible (1fr)</div>
+            <div class="grid-item">100px Fixed</div>
+        </div>
+        <p><strong>Code:</strong> grid-template-columns: 200px 1fr 100px;</p>
+    </div>
+    
+    <div class="example">
+        <h2>3. Repeat Function</h2>
+        <div class="grid-container repeat-grid">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+        </div>
+        <p><strong>Code:</strong> grid-template-columns: repeat(4, 1fr);</p>
+    </div>
+    
+    <div class="example">
+        <h2>4. Responsive Grid with Minmax</h2>
+        <div class="grid-container minmax-grid">
+            <div class="grid-item">Responsive 1</div>
+            <div class="grid-item">Responsive 2</div>
+            <div class="grid-item">Responsive 3</div>
+            <div class="grid-item">Responsive 4</div>
+        </div>
+        <p><strong>Code:</strong> grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</p>
+        <p><em>Resize browser to see responsiveness!</em></p>
+    </div>
+    
+    <div class="example">
+        <h2>5. Item Positioning and Spanning</h2>
+        <div class="grid-container positioned-grid">
+            <div class="grid-item">1</div>
+            <div class="grid-item span-item">Spans 2 Columns</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item positioned-item">Positioned Item</div>
+            <div class="grid-item">5</div>
+        </div>
+        <p><strong>Code:</strong> grid-column: span 2; grid-column: 2 / 4;</p>
+    </div>
+    
+    <div class="example">
+        <h2>6. Named Grid Areas</h2>
+        <div class="grid-container area-grid">
+            <div class="grid-item header-area">Header</div>
+            <div class="grid-item sidebar-area">Sidebar</div>
+            <div class="grid-item main-area">Main Content</div>
+            <div class="grid-item aside-area">Aside</div>
+            <div class="grid-item footer-area">Footer</div>
+        </div>
+        <p><strong>Code:</strong> grid-template-areas and grid-area properties</p>
+    </div>
+</body>
+</html>

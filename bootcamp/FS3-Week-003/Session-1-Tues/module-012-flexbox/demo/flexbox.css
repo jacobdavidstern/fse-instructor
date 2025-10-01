@@ -1,0 +1,12 @@
+.flex-container {
+  display: flex;
+  /* flex-direction: row; - it defualts to this */
+  /* flex-direction: column; */
+}
+
+.item,span {
+  width: 50px;
+  height: 50px;
+  background-color: teal;
+  margin: 50px;
+}

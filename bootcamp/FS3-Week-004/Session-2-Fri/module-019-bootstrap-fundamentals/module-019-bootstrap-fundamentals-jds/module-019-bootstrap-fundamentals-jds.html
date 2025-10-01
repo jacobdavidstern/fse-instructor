@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Stern SWE Bio - Responsive Design</title>
+    <meta
+      name="description"
+      content="Responsive bio page for Jacob Stern built with semantic HTML and Bootstrap 5">
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-..."
+      crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha384-..."
+      crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- Mobile-first layout, responsive breakpoint: md (768px and up) -->
+    <!-- <header> is a structural landmark. Wrapping the .container inside it
+      keeps the semantic block intact while allowing layout control within.-->
+    <header class="bg-body-secondary border-bottom pt-4">
+      <div class="container text-start">
+        <!-- semantically h1, hero heading + google fonts roboto -->
+        <h1 class="display-4" style="font-family: 'Roboto', sans-serif">
+          Jacob Stern
+        </h1>
+        <!-- semantically h2, visually h5-->
+        <h2 class="h5 text-muted">
+          Support Agent transitioning to Software Engineer
+        </h2>
+        <nav class="mt-4" style="min-width: 324px">
+          <!-- use start/end; left/right are deprecated -->
+          <ul class="nav justify-content-start">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- section doesn’t need full-width styling, make container, stay lean -->
+    <section id="about" class="container py-5">
+      <h2 class="h3 mb-4">About Me</h2>
+      <!-- semantically h2, visually h3-->
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <!-- medium and up, 4 / 12 vw -->
+          <img
+            src="photo.png"
+            class="img-fluid rounded"
+            alt="Professional photo of Jacob Stern.">
+        </div>
+        <!-- img-fluid : max-width: 100%; and height: auto; -->
+        <div class="col-md-8">
+          <p class="lead">I’ve always been a problem solver...</p>
+          <p>Eventually, I realized I wanted to build the solutions...</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="container py-5">
+      <h2 class="h3 mb-4">Skills & Experience</h2>
+      <!-- semantically h2, visually h3-->
+      <div class="row">
+        <!-- side-by-side lists,  -->
+        <div class="my-2 col-md-6">
+          <!-- medium and up, 6 / 12 vw -->
+          <h3 class="h5">Software Development</h3>
+          <!-- list-group adds bottom border, list-group-flush removes last -->
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Problem-solving</li>
+            <li class="list-group-item">Programming Languages</li>
+            <li class="list-group-item">Data Structures and Algorithms</li>
+            <li class="list-group-item">Version Control</li>
+          </ul>
+        </div>
+        <div class="my-2 col-md-6">
+          <h3 class="h5">Communications</h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Listening to understand</li>
+            <li class="list-group-item">Empathy that builds trust</li>
+            <li class="list-group-item">Negotiating shared outcomes</li>
+            <li class="list-group-item">Speaking up with purpose</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container py-5">
+      <h2 class="h3 mb-4">Let's Connect</h2>
+      <!-- semantically h2, visually h3-->
+      <p>
+        Email:
+        <a href="mailto:jds@email.com">jds@email.com</a>
+      </p>
+      <p>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/jds/">linkedin.com/in/jds</a>
+      </p>
+      <p>
+        GitHub:
+        <a href="https://github.com/jds">github.com/jds</a>
+      </p>
+
+      <!-- semantically h3, visually h5-->
+      <h3 class="h5 mt-5 mb-3">
+        Send me a Message
+        <!-- include a subtle font-awesome icon + margin space -->
+        <i class="fa-regular fa-envelope text-muted ms-3"></i>
+      </h3>
+      <form action="/submit-survey" method="post">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="firstname" class="form-label">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstname"
+              name="firstname"
+              placeholder="Enter your First Name">
+          </div>
+          <div class="col-md-6">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastname"
+              name="lastname"
+              placeholder="Enter your Last Name">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="emailaddress" class="form-label">Email Address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="emailaddress"
+            name="emailaddress"
+            placeholder="Enter your Email Address">
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea
+            class="form-control"
+            id="message"
+            name="message"
+            rows="3"
+            placeholder="I'd love to hear from you"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </section>
+
+    <footer class="bg-body-secondary border-top py-4">
+      <div class="container text-start">
+        <p class="text-muted mb-0">
+          &copy; 2025 Jacob Stern
+          <span class="ms-4 fw-bold">
+            <!-- container for margin spacing -->
+            “From support to support engineer, embracing the journey”
+          </span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper (JS) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-..."
+      crossorigin="anonymous"></script>
+  </body>
+</html>

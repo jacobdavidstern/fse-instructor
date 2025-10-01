@@ -1,0 +1,94 @@
+Bootstrap Cheatsheet
+
+HTML internal stylesheet, one-off prototypes:
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+</style>
+
+Bootstrap is built with flexbox, but not every element’s display has been changed to display: flex. Most Boostrap components are built with flexbox enabled. Should you need to add display: flex to an element, do so with .d-flex or one of the responsive variants (e.g., .d-sm-flex). You’ll need this class or display value to allow the use of our extra flexbox utilities for sizing, alignment, spacing, and more.
+
+Margin and padding
+Spacing utilities that apply to all breakpoints, from xs to xxl, have no breakpoint abbreviation in them. This is because those classes are applied from min-width: 0 and up, and thus are not bound by a media query. The remaining breakpoints, however, do include a breakpoint abbreviation.
+
+The classes are named using the format {property}{sides}-{size} for xs and {property}{sides}-{breakpoint}-{size} for sm, md, lg, xl, and xxl.
+
+Where property is one of:
+    m - for classes that set margin
+    p - for classes that set padding
+
+Where sides is one of:
+    t - for classes that set margin-top or padding-top
+    b - for classes that set margin-bottom or padding-bottom
+    s - (start) for classes that set margin-left or padding-left in LTR, margin-right or padding-right in RTL
+    e - (end) for classes that set margin-right or padding-right in LTR, margin-left or padding-left in RTL
+    x - for classes that set both *-left and *-right
+    y - for classes that set both *-top and *-bottom
+    blank - for classes that set a margin or padding on all 4 sides of the element
+
+Where size is one of:
+    0 - for classes that eliminate the margin or padding by setting it to 0
+    1 - (by default) for classes that set the margin or padding to $spacer * .25
+    2 - (by default) for classes that set the margin or padding to $spacer * .5
+    3 - (by default) for classes that set the margin or padding to $spacer
+    4 - (by default) for classes that set the margin or padding to $spacer * 1.5
+    5 - (by default) for classes that set the margin or padding to $spacer * 3
+    auto - for classes that set the margin to auto
+
+Subtle Background Colors
+These are lighter, low-contrast variants of the standard .bg-* classes
+.bg-light-subtle	Softer than .bg-light
+.bg-secondary-subtle	Gentle gray tone
+.bg-primary-subtle	Soft blue tint
+.bg-dark-subtle	Muted charcoal, not full black
+.bg-body-secondary	Slightly darker than body
+.bg-body-tertiary	Even more offset, still subtle
+
+Background Colors
+bg-warning text-warning (yellow)
+bg-primary (blue)
+bg-secondary (gray)
+bg-success (green)
+bg-info (teal)
+bg-danger (red)
+bg-dark (black)
+
+font weight utility class
+fw-bold
+fw-bolder
+fw-light
+fw-lighter
+fw-normal
+
+.section-divider {
+  height: 4px;
+  width: 10%;
+  margin: 1rem auto;
+  background: linear-gradient(to right, #6a5acd 0%, #663399 100%);
+  border: none;
+  border-radius: 2px;
+}
+
+.full-width {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.bg-contact {
+  background-color: #333 !important;
+}
+
+.bg-gradient {
+  background: linear-gradient(to right, #6a5acd 0%, #663399 100%);
+}
+
+Font Awesome Icons for Nav Row
+Label	   Suggested Icon Class	            Preview Purpose
+</>	     fas fa-code	                    Represents code or dev identity
+Home	   fas fa-home	                    Universal home icon
+Projects fas fa-folder	                  Implies a collection or portfolio
+Skills	 fas fa-cogs or fas fa-tools	    Technical depth or tooling expertise
+About	   fas fa-user or fas fa-id-card	  Personal identity or bio
+Contact  fas fa-envelope	                Email or messaging

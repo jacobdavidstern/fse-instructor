@@ -1,0 +1,10 @@
+.magazine-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+
+article{
+    border: 1px solid black;
+}

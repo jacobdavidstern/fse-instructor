@@ -1,0 +1,23 @@
+.magazine-layout {
+  display: grid;
+  /* setting up three column layout */
+  grid-template-columns: 1fr 2fr;
+  /* try it with percentages */
+  /* grid-template-columns: 50% 25% 25%; */
+  /* grid-template-columns: 100px 1fr 100px */
+
+  /* header, content, footer rows */
+  grid-template-rows: auto 1fr auto;
+
+  /* gap - makes spacing between elements easy */
+  gap: 20px;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+article {
+  border: 1px solid red;
+  /* margin vs gap */
+  /* this will cause headaches */
+  /* margin-right: 20px; */
+}

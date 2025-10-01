@@ -113,3 +113,15 @@ Warning! Overwrite all files in repo with current Prettier config
   - fse-instructor repo - Common JS (CJS)
   - fse-learning repo - ES Module (ESM)
 - `.eslintrc.cjs` and `.prettierrc.cjs` updated for consistency
+
+### 07. Debugging Node.js in VS Code
+
+#### Option 1: JS Debug Terminal (Quick & Dirty)
+- Open `Terminal > New JavaScript Debug Terminal`
+- Run your script manually: `node app.js`
+- VS Code auto-attaches debugger
+
+#### Option 2: launch.json (Reproducible & Configurable)
+- Create `.vscode/launch.json`
+- Define entry point, env vars, console type, etc.
+- Ideal for team projects and onboarding clarity

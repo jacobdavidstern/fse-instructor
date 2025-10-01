@@ -1,0 +1,16 @@
+/* tag selector */
+h1 {
+    font-size: 48px;
+    color: blue;
+}
+
+/* class selector */
+.smaller {
+    font-size: 8px;
+}
+
+/* id selector*/
+
+#big{
+    font-size:144px;
+}

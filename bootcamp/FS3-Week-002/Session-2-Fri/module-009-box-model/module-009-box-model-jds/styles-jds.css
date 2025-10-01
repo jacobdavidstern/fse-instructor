@@ -1,0 +1,97 @@
+/* Professional Business Card - Starting Styles */
+
+/* Basic page setup */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Card container for centering */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 32vh;
+}
+
+/* Main business card */
+.business-card {
+  background-color: white;
+  width: 350px;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  border: 2px solid white;
+  border-radius: 8px;
+  margin: 4px, auto;
+  /*  stretch goals */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/*  stretch goals */
+/* Hover effect for interactivity */
+.business-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-color: white;
+}
+
+/* Header section with name and title */
+.header-section {
+  text-align: center;
+  padding: 0 0 16px 0;
+  margin: 16px;
+  border-bottom: 1px solid lightgray;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+}
+
+.title {
+  font-size: 16px;
+  color: #7f8c8d;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Contact information section */
+.contact-section {
+  padding: 16px;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+
+.label {
+  font-weight: bold;
+  color: #34495e;
+}
+
+.value {
+  color: #2980b9;
+}
+
+/* Skills section */
+.skills-section {
+  text-align: center;
+  margin: 16px;
+  border-top: 1px solid lightgray;
+}
+
+.skills {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin: 16px 0 0 0;
+}

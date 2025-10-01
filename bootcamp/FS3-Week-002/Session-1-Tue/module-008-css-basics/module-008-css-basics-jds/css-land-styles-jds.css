@@ -1,0 +1,75 @@
+/* ===========================================
+   CSS LAND - LEARN CSS FUNDAMENTALS
+   Complete the TODOs below to style the page!
+   =========================================== */
+
+body {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+#main-title {
+  color: blue;
+}
+
+.tagline {
+  color: gray;
+}
+
+.red-text {
+  c: red;
+}
+
+.blue-background {
+  background-color: lightblue;
+  padding: 10px;
+}
+
+.fancy-colors {
+  color: green;
+  background-color: lightcyan;
+  padding: 8px;
+}
+
+.intro-section {
+  background-color: lightgray;
+  padding: 15px;
+}
+
+.highlight-text {
+  background: color yellow;
+  padding: 5px;
+}
+
+#unique-box {
+  background-color: lightgreen;
+  padding: 20px;
+}
+
+.padding-example {
+  border: 2px;
+  padding: 15px;
+}
+
+.creative-box {
+  border: pink dashed 2px;
+  padding: 20px;
+}
+
+.page-footer {
+  background-color: darkgray;
+  color: white;
+  padding: 25px;
+}
+
+h2 {
+  color: darkblue;
+  padding: 8px;
+}
+
+.creative-box {
+  background-color: lime;
+  color: darkorange;
+  padding: 10px;
+  border: pink solid 8px;
+}

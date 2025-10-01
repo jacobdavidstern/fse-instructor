@@ -1,0 +1,57 @@
+/* child - first-of-type and last-of-type*/
+
+li:nth-child(even){
+    background-color: gray;
+}
+
+li:first-child{
+    font-style: italic;
+}
+
+
+/* decorative - ::before ::after */
+blockquote::before{
+     content: open-quote;
+}
+blockquote::after{
+     content: close-quote;
+}
+
+
+img[class]{
+    border: 5px solid black;
+}
+
+main div{
+    color: blue;
+}
+
+
+/* just target footer div */
+/* any decendant/child of footer that is a div */
+footer div{
+    background-color: brown;
+}
+
+footer > div {
+    border: 10px solid gold;
+}
+
+/* target multiple selectors with a single rule/ruleset */
+blockquote, p {
+    font-style: oblique;
+}
+
+/* sibling selectors */
+
+/* right after */
+h2 + p {
+    font-size: 50px;
+    background-color: pink;
+}
+
+/* general sibling */
+
+.first-lorem ~ p {
+    margin-left: 50px;
+}

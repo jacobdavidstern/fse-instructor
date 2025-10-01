@@ -1,0 +1,26 @@
+.flex-container {
+  display: flex;
+  /* flex-direction: row; - it defualts to this */
+  /* flex-direction: column; */
+}
+
+.flex-container-gap {
+  display: flex;
+  /* flex-direction: row; - it defualts to this */
+  /* flex-direction: column; */
+  gap: 50px;
+  padding: 0 50px;
+}
+
+.item-gap {
+  width: 50px;
+  height: 50px;
+  background-color: teal;
+}
+
+.item-margin {
+  width: 50px;
+  height: 50px;
+  background-color: teal;
+  margin: 50px;
+}

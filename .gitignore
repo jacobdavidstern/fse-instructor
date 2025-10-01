@@ -1,7 +1,23 @@
-# privatize sandbox/ folder
-sandbox/*
-!sandbox/.gitkeep
+# .gitignore
 
-# privatize bootcamp/ folder
-bootcamp/*
-!bootcamp/.gitkeep
+# Dependency folders — never tracked
+node_modules/
+dist/
+build/
+
+# bootcamp folder — privatized but structurally preserved
+bootcamap/*                 # ignore all contents
+!bootcamp/.gitkeep         # keep placeholder for folder tracking
+
+# sandbox folder — privatized but structurally preserved
+sandbox/*                 # ignore all contents
+!sandbox/.gitkeep         # keep placeholder for folder tracking
+
+# Logs and environment files — local only
+*.log
+.env
+
+# Optional: editor or OS artifacts (uncomment if needed)
+.DS_Store
+# Thumbs.db
+# *.swp
