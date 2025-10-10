@@ -15,7 +15,7 @@
 // return the total
 
 function getTotalInventoryAmount() {
-//   return "hello";
+  //   return "hello";
 }
 
-console.log("I expect hello and i got:", getTotalInventoryAmount());
+console.log('I expect hello and i got:', getTotalInventoryAmount());

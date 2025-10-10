@@ -1,18 +1,44 @@
-// Define your function below:
-async function resolveWithValue(pFn, string) {
-  try {
-    const result = await pFn(string);
-    console.log(result);
-  } catch (error) {
-    console.log(error);
-  }
+function sayHello(name) {
+  console.log(`Hello ${name}`);
 }
-resolveWithValue(testerFunc, 'test input');
-// testerFunc() takes in a string and returns a promise
-let testerFunc = (str) => {
-  if (Math.random() < 0.5) {
-    return Promise.resolve(`Resolved with: ${str}`);
-  } else {
-    return Promise.reject(`Rejected with: ${str}`);
-  }
-};
+
+function sayGday(name) {
+  console.log('Gday mate!');
+}
+
+function greetUser(name, callbackFunction) {
+  console.log('Processing Greeting');
+
+  // decides when to call the callbackFunction
+  callbackFunction(name);
+
+  console.log('greeting complete');
+}
+
+// as developer when we use a function with a callback
+// we can decide what the function does
+// but it might expect sayHello to return a specific value
+greetUser('Bob', sayHello);
+greetUser('', sayGday);
+// function sayHello(name) {
+//   console.log(`Hello ${name}`);
+// }
+
+function sayGday(name) {
+  console.log('Gday mate!');
+}
+
+function greetUser(name, callbackFunction) {
+  console.log('Processing Greeting');
+
+  // decides when to call the callbackFunction
+  callbackFunction(name);
+
+  console.log('greeting complete');
+}
+
+// as developer when we use a function with a callback
+// we can decide what the function does
+// but it might expect sayHello to return a specific value
+greetUser('Bob', sayHello);
+greetUser('', sayGday);

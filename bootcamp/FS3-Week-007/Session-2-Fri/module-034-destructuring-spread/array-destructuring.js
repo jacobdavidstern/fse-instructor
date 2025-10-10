@@ -4,12 +4,12 @@
 
 function getPerson() {
   //pretend that we have to return an array
-  return ["Bob", 40];
+  return ['Bob', 40];
 }
 
-console.log(getPerson())
+console.log(getPerson());
 const person = getPerson();
-console.log(person[1])
+console.log(person[1]);
 
 // not good practice
 // if(person[1] === "Sue")
@@ -29,5 +29,5 @@ console.log(age);
 // what would age have in it, and what would name have in it
 const [ageTwo, nameTwo] = getPerson();
 
-console.log(ageTwo) // Why is this bob?
+console.log(ageTwo); // Why is this bob?
 // make sure you get the order right for the variable
