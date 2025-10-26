@@ -1,0 +1,15 @@
+# Silence .gitkeep in coursework/, sandbox/, and submitted/
+# export-ignore: skips .gitkeep when creating archive exports (git archive)
+# linguist-generated: tells GitHub to treat it as auto-generated (won’t count toward language stats)
+# -text: disables line-ending normalization (avoids diffs on CRLF vs LF)
+# export-ignore: exclude from git archive, although empty folders remain visible on github
+
+bootcamp/.gitkeep export-ignore
+bootcamp/.gitkeep linguist-generated
+bootcamp/.gitkeep -text
+bootcamp/ export-ignore
+
+sandbox/.gitkeep export-ignore
+sandbox/.gitkeep linguist-generated
+sandbox/.gitkeep -text
+sandbox/ export-ignore

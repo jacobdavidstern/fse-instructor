@@ -1,0 +1,24 @@
+# .gitignore
+
+# Dependency folders — never tracked
+node_modules/
+dist/
+build/
+
+# git may fail to apply ** to deep nested paths unless the directory structure is already ignored
+# bootcamp folder — privatized but structurally preserved
+/bootcamp/**                # root-anchored recursive ignore
+!bootcamp/.gitkeep         # keep placeholder for folder tracking
+
+# sandbox folder — privatized but structurally preserved ignore
+/sandbox/**                 # root-anchored recursive
+!sandbox/.gitkeep          # keep placeholder for folder tracking
+
+# Logs and environment files — local only
+*.log
+.env
+
+# Optional: editor or OS artifacts (uncomment if needed)
+.DS_Store
+# Thumbs.db
+# *.swp
