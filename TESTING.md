@@ -136,11 +136,10 @@ Child .gitignore rules from multiple React projects cascade and override parent 
 
 **Part 1.** Use `.git/info/exclude` to block nested `.gitignore` files from overriding config.
 Instead of fighting scattered `.gitignore` files, we placed global rules in `.git/info/exclude`.
-This file is local only and never committed, so while stable and effective, somewhat coarse.
+This file is local only and never committed, so while stable and effective, somewhat inflexible.
 
 ```
 /bootcamp/**
-/sandbox/**
 ```
 
 **Part 2.** Revise .gitignore to recurse from the repo root--needs more testing
@@ -152,7 +151,7 @@ This file is local only and never committed, so while stable and effective, some
 
 Key Takeaways
 
-- Deeper .gitignore files can override parent rules.
-- A leading / anchors rule to the repo root.
-- .git/info/exclude is safe for local ignore rules.
-- Note: these are per-user and not synced with commits.
+- Nested .gitignore files override repo-root .gitignore rules.
+- Leading "/" anchors a rule to the repo root ( bootcamp/** vs /bootcamp/** )
+- .git/info/exclude for local ignore rules.
+- Note: .git/info/exclude are local, per-user, and not synced with commits.
