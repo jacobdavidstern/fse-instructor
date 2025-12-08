@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "type": "commonjs",
-  "homepage": "https://github.com/jacobdavidstern/fse-instructor#readme",
+  "homepage": "https://github.com/jacobdavidstern/fse-instructor",
   "scripts": {
     "lint": "eslint . --ext .js,.cjs",
     "lint:htmlhint": "htmlhint '**/*.html'",
@@ -40,7 +40,16 @@
     "tailwindcss": "^4.1.15"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.1",
     "@tailwindcss/cli": "^4.1.15",
-    "@tailwindcss/postcss": "^4.1.15"
+    "@tailwindcss/postcss": "^4.1.15",
+    "bootstrap": "^5.3.8",
+    "express": "^5.1.0",
+    "react": "^19.0.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.9.5",
+    "react-router-dom": "^7.9.5"
   }
 }

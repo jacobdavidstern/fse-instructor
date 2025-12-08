@@ -5,14 +5,6 @@ node_modules/
 dist/
 build/
 
-# bootcamp folder — privatized but structurally preserved
-/bootcamp/**                # root-anchored recursive ignore
-!bootcamp/.gitkeep         # keep placeholder for folder tracking
-
-# sandbox folder — privatized but structurally preserved ignore
-/sandbox/**                 # root-anchored recursive
-!sandbox/.gitkeep          # keep placeholder for folder tracking
-
 # Logs and environment files — local only
 *.log
 .env
@@ -21,3 +13,23 @@ build/
 
 # Optional: editor or OS artifacts
 .DS_Store
+
+# _archive folder — privatized but structurally preserved ignore
+# note: ./git/info/exclude
+/_archive/**                    # root-anchored recursive
+!_archive/.gitkeep             # keep placeholder for folder tracking
+
+# bootcamp folder — privatized but structurally preserved
+# note: ./git/info/exclude
+/bootcamp/**                # root-anchored recursive ignore
+!bootcamp/.gitkeep         # keep placeholder for folder tracking
+
+# docs folder — privatized but structurally preserved ignore
+# note: ./git/info/exclude
+/docs/**                    # root-anchored recursive
+!docs/.gitkeep             # keep placeholder for folder tracking
+
+# sandbox folder — privatized but structurally preserved ignore
+# note: ./git/info/exclude
+/sandbox/**                 # root-anchored recursive
+!sandbox/.gitkeep          # keep placeholder for folder tracking
