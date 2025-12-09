@@ -17,7 +17,7 @@ const VibePlayer = () => {
     >
       <div className="d-flex align-items-center mb-3">
         <i className="fa-solid fa-music"></i>
-        <h2 className="h4 ms-3">VibePlayer | Abum</h2>
+        <h2 className="h4 ms-3">VibePlayer | Album</h2>
       </div>
 
       <div className="mt-3">
