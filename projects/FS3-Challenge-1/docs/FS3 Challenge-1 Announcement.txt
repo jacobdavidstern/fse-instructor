@@ -1,4 +1,4 @@
-## FSE-3 Challenge-1, Music Player
+## FS3 Challenge-1, Music Player
 
 Full Stack Developer Bootcamp for Beginners - Contest #1
 Get Featured on Our Official Linkedin Handle!

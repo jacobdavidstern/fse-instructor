@@ -12,12 +12,11 @@ const AudioLogic = () => {
   const audioRef = useRef(new Audio());
 
   useEffect(() => {
-    fetch(
-      `https://api.jamendo.com/v3.0/tracks/?client_id=${clientId}&format=json&album_id=${albumId}&order=id_desc`
-    )
+    fetch(`/api/jamendo?album_id=${albumId}&order=id_desc`)
       .then((res) => res.json())
       .then((data) => {
         // console.log('Jamendo response:', data);
+        console.log('Jamendo response:', data);
         setTracks(data.results || []);
       })
       .catch((err) => {
