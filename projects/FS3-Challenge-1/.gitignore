@@ -39,3 +39,5 @@ build/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+.vercel
+.env*.local
