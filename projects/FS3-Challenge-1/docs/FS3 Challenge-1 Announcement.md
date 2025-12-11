@@ -20,10 +20,10 @@ Tech Stack Options Choose one: - React (Component-based approach) - HTML/CSS/JS
 (Vanilla implementation)
 
 Project Guidelines:
-• The project must be fully functional - no incomplete features in the demo or code.
-• Add extra capabilities to make your projects stand out.
-• Ensure the Ul and UX are clean, intuitive, and user-friendly.
-• Experiment and innovate - incorporate advanced features or unique twists.
-• Originality matters - no plagiarized or copied work.
-• Post your project on Linkedin, tag Codecademy, and use the hashtag #CodecademyBootcamp.
-• Submit your Linkedin post link in the #project-showcase channel on Discord.
+- The project must be fully functional - no incomplete features in the demo or code.
+- Add extra capabilities to make your projects stand out.
+- Ensure the Ul and UX are clean, intuitive, and user-friendly.
+- Experiment and innovate - incorporate advanced features or unique twists.
+- Originality matters - no plagiarized or copied work.
+- Post your project on Linkedin, tag Codecademy, and use the hashtag #CodecademyBootcamp.
+- Submit your Linkedin post link in the #project-showcase channel on Discord.

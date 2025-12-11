@@ -1,6 +1,11 @@
-// api/jamendo.js
-// API route to proxy requests to Jamendo API
-export default async function handler(req, res) {
+// server.js
+require('dotenv').config();
+require('dotenv').config({ path: '.env.local', override: true });
+
+const express = require('express');
+const app = express();
+
+app.get('/api/jamendo', async (req, res) => {
   try {
     const url =
       'https://api.jamendo.com/v3.0/tracks/?format=json' +
@@ -16,4 +21,11 @@ export default async function handler(req, res) {
     console.error('Jamendo proxy error', err);
     res.status(500).json({ error: 'Server error' });
   }
-}
+});
+
+app.use((req, res) => {
+  res.status(404).json({ error: 'Route not found' });
+});
+
+const PORT = process.env.PORT || 3001; // fallback, .env sets PORT=3001
+app.listen(PORT, () => {});

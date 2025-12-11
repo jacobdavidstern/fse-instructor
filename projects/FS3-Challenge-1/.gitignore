@@ -1,14 +1,21 @@
-# General
+# macOS system files
 .DS_Store
 .AppleDouble
 .LSOverride
 Icon?
-
-# Thumbnails
 ._*
 
-# Node_modules
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node modules
 **/node_modules/
+
+# Build artifacts
+dist/
+build/
 
 # Log files
 npm-debug.log*
@@ -23,21 +30,15 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
-
-# Build artifacts
-dist/
-build/
+.vercel
 
 # Editor settings
 .vscode/
+.idea/          # JetBrains IDEs
 
 # Temporary files
 *.tmp
 *.swp
 
-# Windows system files
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-.vercel
-.env*.local
+# Test / coverage outputs
+coverage/
