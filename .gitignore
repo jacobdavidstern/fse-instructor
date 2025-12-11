@@ -1,35 +1,47 @@
 # .gitignore
 
-# Dependency folders — never tracked
-node_modules/
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node modules
+**/node_modules/
+
+# Build artifacts
 dist/
 build/
 
-# Logs and environment files — local only
-*.log
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache files
+.eslintcache
+.prettiercache
+
+# Environment settings
 .env
-.history/			# Local History extension creates a .history/ in each workspace
-**/.history/
+.env.local
+.env.*.local
+.vercel
 
-# Optional: editor or OS artifacts
-.DS_Store
+# Editor settings
+.vscode/
+.idea/
+.history/
 
-# _archive folder — privatized but structurally preserved ignore
-# note: ./git/info/exclude
-/_archive/**                    # root-anchored recursive
-!_archive/.gitkeep             # keep placeholder for folder tracking
+# Temporary files
+*.tmp
+*.swp
 
-# bootcamp folder — privatized but structurally preserved
-# note: ./git/info/exclude
-/bootcamp/**                # root-anchored recursive ignore
-!bootcamp/.gitkeep         # keep placeholder for folder tracking
-
-# docs folder — privatized but structurally preserved ignore
-# note: ./git/info/exclude
-/docs/**                    # root-anchored recursive
-!docs/.gitkeep             # keep placeholder for folder tracking
-
-# sandbox folder — privatized but structurally preserved ignore
-# note: ./git/info/exclude
-/sandbox/**                 # root-anchored recursive
-!sandbox/.gitkeep          # keep placeholder for folder tracking
+# Test / coverage outputs
+coverage/

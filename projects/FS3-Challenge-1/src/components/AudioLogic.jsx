@@ -2,8 +2,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import MusicInfo from './MusicInfo.jsx';
 
-const clientId = import.meta.env.VITE_JAMENDO_CLIENT_ID || '709fa152';
 const albumId = '611338';
+const proxyUrl = `/api/jamendo?album_id=${albumId}&order=id_desc`;
 
 const AudioLogic = () => {
   const [tracks, setTracks] = useState([]);
@@ -11,19 +11,37 @@ const AudioLogic = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(new Audio());
 
+  // use the proxy only — never fall back to a client-side request that exposes the key
   useEffect(() => {
-    fetch(
-      `https://api.jamendo.com/v3.0/tracks/?client_id=${clientId}&format=json&album_id=${albumId}&order=id_desc`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log('Jamendo response:', data);
-        setTracks(data.results || []);
+    const proxyUrl = `/api/jamendo?album_id=${albumId}&order=id_desc`;
+    let cancelled = false;
+
+    fetch(proxyUrl)
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`Proxy request failed: ${res.status}`);
+        const text = await res.text(); // read raw response
+        try {
+          const data = JSON.parse(text); // try to parse JSON
+          if (!cancelled) setTracks(data.results || []);
+        } catch (err) {
+          console.error(
+            'Jamendo proxy fetch error:',
+            err,
+            'Response was:',
+            text
+          );
+          if (!cancelled) setTracks([]); // keep UI stable
+        }
       })
       .catch((err) => {
-        console.error('Jamendo fetch error', err);
+        console.error('Network error:', err);
+        if (!cancelled) setTracks([]);
       });
-  }, []);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [albumId]);
 
   useEffect(() => {
     const audio = audioRef.current;
