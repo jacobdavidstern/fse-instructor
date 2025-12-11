@@ -5,20 +5,20 @@ require('dotenv').config({ path: '.env.local', override: true });
 const express = require('express');
 const app = express();
 
-app.get('/api/album', async (req, res) => {
+app.get('/api/jamendo', async (req, res) => {
   try {
     const url =
-      'https://api.jamendo.com/v3.0/albums/?format=json' +
+      'https://api.jamendo.com/v3.0/tracks/?format=json' +
       '&client_id=' +
       process.env.JAMENDO_CLIENT_ID +
-      '&include=tracks&' +
+      '&' +
       new URLSearchParams(req.query).toString();
 
     const response = await fetch(url);
     const data = await response.json();
     res.status(response.status).json(data);
   } catch (err) {
-    console.error('Jamendo album proxy error', err);
+    console.error('Jamendo proxy error', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
