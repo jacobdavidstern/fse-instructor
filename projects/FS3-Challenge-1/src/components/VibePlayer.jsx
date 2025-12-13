@@ -1,6 +1,6 @@
 // components/VibePlayer.jsx
 import React from 'react';
-import AudioLogic from './AudioLogic.jsx';
+import MusicControl from './MusicControl.jsx';
 
 const VibePlayer = () => {
   return (
@@ -21,7 +21,7 @@ const VibePlayer = () => {
       </div>
 
       <div className="mt-3">
-        <AudioLogic />
+        <MusicControl />
       </div>
     </div>
   );
