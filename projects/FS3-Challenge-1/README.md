@@ -7,10 +7,11 @@ Single‑page React music player using the Jamendo API
 - Graceful "Loading..." if no API key found
 - Bootstrap + FontAwesome (CDN) for styling
 - Deployed on Vercel for reproducible hosting
+- App corresponds to [Guitarred album on Jamendo](https://www.jamendo.com/album/611338/guitarred)
 
 ## 🚀 Demo
 
-[Live on Render](https://fse-instructor.onrender.com/)
+[Live on Railway](https://fse-instructor-production.up.railway.app/)
 
 ## Setup
 
@@ -53,7 +54,7 @@ node server.js
 npm run dev
 ```
 
-8. Build production assets including Rollup bundle for prod and Render
+8. Build production assets including Rollup bundle for prod
 
 ```sh
 npm run build
