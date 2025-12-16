@@ -10,11 +10,11 @@ if (!process.argv.includes('--find-config-path')) {
 // Add override: only prettify Markdown prose, not code blocks
 base.overrides = [
   {
-    files: "*.md",
+    files: '*.md',
     options: {
-      embeddedLanguageFormatting: "off"
-    }
-  }
+      embeddedLanguageFormatting: 'off',
+    },
+  },
 ];
 
 // Export for Prettier to consume
