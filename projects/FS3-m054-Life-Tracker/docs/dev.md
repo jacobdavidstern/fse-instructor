@@ -24,6 +24,9 @@
 - Custom Build Command > + Build Command > `cd projects/FS3-m054-Life-Tracker && npm run build`
 - Custom Start Command > + Start Command > `cd projects/FS3-m054-Life-Tracker && npm run start`
 - Apply 3 changes > Details > Deploy Changes (triggers redeploy with new service settings)
+- For production deploys, serve and vite must be listed in "dependencies" in package.json, not "devDependencies".
+- `npm install serve@^14.2.1 vite@^7.1.12 --save`
+- `serve -s dist`
 
 # Project package.json
 
@@ -41,11 +44,12 @@
     "start": "serve -s dist"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-bootstrap": "^2.10.10",
     "bootstrap": "^5.3.8",
-    "serve": "^14.2.1"
+    "react": "^19.0.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.0.0",
+    "serve": "^14.2.5",
+    "vite": "^7.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
@@ -55,8 +59,7 @@
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
-    "globals": "^16.4.0",
-    "vite": "^7.1.7"
+    "globals": "^16.4.0"
   },
   "engines": {
     "node": ">=20"
