@@ -20,9 +20,10 @@
 - Networking > confirm default domain (Railway auto-generates one once service is running)
 - Networking > Generate Domain and select default if one does not appear
 - Build > Use Metal Build Environment (select)
-- Custom Build Command > + Build Command > cd projects/FS3-m054-Life-Tracker && npm run build (enter)
-- Custom Start Command > + Start Command > cd projects/FS3-m054-Life-Tracker && npm run start (enter)
-- Apply 3 changes > Details > Deploy Changes (triggers redeploy with new build/start commands)
+- if using railway.toml with `root = "projects/FS3-m054-Life-Tracker"`, you don’t need the `cd ... &` prefix in the dashboard — but okay to keep as a fallback
+- Custom Build Command > + Build Command > `cd projects/FS3-m054-Life-Tracker && npm run build`
+- Custom Start Command > + Start Command > `cd projects/FS3-m054-Life-Tracker && npm run start`
+- Apply 3 changes > Details > Deploy Changes (triggers redeploy with new service settings)
 
 # Project package.json
 
