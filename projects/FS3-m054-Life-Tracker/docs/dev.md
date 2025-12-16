@@ -17,7 +17,9 @@
 - click the service inside m054-life-tracker (e.g., “fse-instructor”)
 - click Settings (corresponds to service settings)
 - [Railway Networking Settings](https://docs.railway.com/guides/public-networking#railway-provided-domain)
+- Source Repo > Change Root Directory > `/projects/FS3-m054-Life-Tracker`
 - Networking > confirm default domain (Railway auto-generates one once service is running)
+- Note: toml prefers double quotes and spaces replaced with dots
 - Networking > Generate Domain and select default if one does not appear
 - Build > Use Metal Build Environment (select)
 - if using railway.toml with `root = "projects/FS3-m054-Life-Tracker"`, you don’t need the `cd ... &` prefix in the dashboard — but okay to keep as a fallback
