@@ -1,6 +1,5 @@
 // ----- REMOVE API KEY BEFORE SHARING -----
-const API_KEY = /* nope */;
-
+const API_KEY = d254cf49904c4bbe87d135ce965a07a4;
 // ----- Elements -----
 const searchInput = document.querySelector('#stock-input');
 const searchForm = document.querySelector('#stock-form');
