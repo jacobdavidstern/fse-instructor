@@ -11,9 +11,10 @@ export default function useQuote() {
       try {
         // works locally only on http, not https, fails on vercel
         //const res = await fetch('http://api.quotable.io/random');
-        const res = await fetch('https://zenquotes.io/api/random');
+        const res = await fetch('https://api.adviceslip.com/advice');
         const data = await res.json();
-        setQuote(data.content);
+        // setQuote(data.content);
+        setQuote(data.slip.advice);
       } catch (e) {
         console.error('Quote fetch failed:', e);
         setQuote('Press Start to Continue');
