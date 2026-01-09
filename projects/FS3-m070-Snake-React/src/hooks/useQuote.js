@@ -9,8 +9,9 @@ export default function useQuote() {
   useEffect(() => {
     async function fetchQuote() {
       try {
-        // works only on http, not https
-        const res = await fetch('http://api.quotable.io/random');
+        // works locally only on http, not https, fails on vercel
+        //const res = await fetch('http://api.quotable.io/random');
+        const res = await fetch('https://zenquotes.io/api/random');
         const data = await res.json();
         setQuote(data.content);
       } catch (e) {
