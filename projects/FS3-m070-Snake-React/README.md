@@ -8,20 +8,20 @@ Move, eat, grow, survive collisions and the timer, and get a random quote on Gam
 
 - Classic Snake gameplay
 - 3‑minute countdown timer
-- Game Over screen with a random quote from Quotable API
+- Game Over screen with a random quote from Advice Slip API (Quotable didn't deploy)
 - Persistent Score tracking in LocalStorage
 - React Router multi‑page flow: Home, Game, Game Over
-- Leaderboard available on Home and Game Over
+- Leaderboard available on Home and Game Over page with name entry and Anonymous default
 - Custom hooks (useTimer, useGameContext, useQuote)
-- Score and remaining time displayed on Game
+- Score and remaining time displayed on Game page
 
 ## External API
 
-This project uses the Quotable API to fetch a random quote on the Game Over screen.
+This project uses the Advice Slip API to fetch a random quote on the Game Over screen.
 
 Endpoint used:
 
-[Quotable](http://api.quotable.io/random)
+[Advice Slip](https://api.adviceslip.com/advice)
 
 If the API request fails, a console error is generated and a fallback message shown.
 
@@ -39,7 +39,7 @@ Clone the repository
 
 ```sh
 git clone https://github.com/jacobdavidstern/fse-instructor.git
-cd fse-instructor/projects/FS3-m070-Snake-Game
+cd fse-instructor/projects/FS3-m070-Snake-React
 ```
 
 Install dependencies
@@ -58,7 +58,7 @@ Open the app in your browser at the URL shown in your terminal, usually http://l
 
 ## Live Deployment
 
-Live URL: coming soon
+Live URL: https://fsei-snake-react-nak7n948r-jacobdavidstern.vercel.app/
 
 ## Project Structure
 
@@ -92,5 +92,5 @@ src/
 
 ## License
 
-This project is licensed under the MIT license
+This project is licensed under the MIT license.
 A copy of the MIT license is included in the project root.
