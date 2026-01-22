@@ -1,0 +1,13 @@
+# railway.toml
+
+# Vibe Player service
+[service.vibe-player]
+root = "projects/FS3-Challenge-1"
+build = "npm run build"
+start = "npm run start"
+
+# Life Tracker service
+[service.life-tracker]
+root = "projects/FS3-m054-Life-Tracker"
+build = "npm run build"
+start = "npm run start"
