@@ -112,14 +112,11 @@ Design basic layout for all 5 required pages and select design system (colors an
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Name</title>
+    <title>TicketFire | Codecademy FSE Instructor-led Capstone</title>
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css"
-      integrity="sha512-..."
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap"
@@ -417,6 +414,10 @@ Set up Express server, install dependencies, create folder structure, and add a 
 
 - [x] Navigate to server folder: `cd server`
 - [x] Initialize npm: `npm init -y`
+- [x] Install all dependencies
+  ```sh
+  npm install express dotenv cors bcrypt jsonwebtoken helmet express-rate-limit mongoose
+  ```
 - [x] Install backend dependencies:
   ```bash
   npm install express dotenv cors bcrypt jsonwebtoken

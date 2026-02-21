@@ -24,15 +24,15 @@ Start with this:
 
 ### Client
 
-3. /trinity
+3. /
    - Purpose: Client dashboard overview
    - Auth required: Yes (client)
 
-4. /trinity/events
+4. //events
    - Purpose: Empty / initial events state
    - Auth required: Yes (client)
 
-5. /trinity/events/:id
+5. //events/:id
    - Purpose: Create or edit an event
    - Auth required: Yes (client)
 

@@ -2,7 +2,7 @@
 
 ## Roles (Conceptual)
 
-### Redeemer
+### Staff
 - Purpose: Ticket validation only
 - Capabilities:
   - View assigned events

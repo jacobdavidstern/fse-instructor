@@ -12,3 +12,13 @@ router.use('/tasks', taskRoutes);
 router.use('/admin', adminRoutes);
 
 module.exports = router;
+
+
+function Greeting() {
+  let words;
+  if(loggedIn) {
+  words = "Hello, welcome back.";
+  } else {
+  words = "Who are you? Get away.";
+  return <h1>{words}</h1>;
+}
