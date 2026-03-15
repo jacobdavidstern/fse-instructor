@@ -82,26 +82,32 @@ project/
 
 #### Auth Routes (`/api/auth`)
 
+```text
 | Method | Endpoint  | Description                       |
 | ------ | --------- | --------------------------------- |
 | POST   | /register | Register new user                 |
 | POST   | /login    | Login and receive JWT             |
 | GET    | /me       | Get current user (requires token) |
+```
 
 #### Task Routes (`/api/tasks`)
 
+```text
 | Method | Endpoint | Description      |
 | ------ | -------- | ---------------- |
 | GET    | /        | Get user’s tasks |
 | POST   | /        | Create new task  |
 | PUT    | /:id     | Update own task  |
 | DELETE | /:id     | Delete own task  |
+```
 
 #### Admin Routes (`/api/admin`)
 
+```text
 | Method | Endpoint | Description                 |
 | ------ | -------- | --------------------------- |
 | GET    | /tasks   | View all tasks (admin only) |
+```
 
 ### Setup & Installation
 

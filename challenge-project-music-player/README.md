@@ -9,7 +9,7 @@ Single‑page React music player using the Jamendo API
 - Deployed on Vercel for reproducible hosting
 - App corresponds to [Guitarred album on Jamendo](https://www.jamendo.com/album/611338/guitarred)
 
-## 🚀 Demo
+## Demo
 
 [Live on Railway](https://fse-instructor-production.up.railway.app/)
 

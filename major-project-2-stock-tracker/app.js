@@ -1,5 +1,5 @@
-// ----- REMOVE API KEY BEFORE SHARING -----
-const API_KEY = d254cf49904c4bbe87d135ce965a07a4;
+// app.js
+
 // ----- Elements -----
 const searchInput = document.querySelector('#stock-input');
 const searchForm = document.querySelector('#stock-form');
@@ -45,26 +45,6 @@ function loadFromLocalStorage(storeKey) {
 
 function saveToLocalStorage(storeKey, data) {
   localStorage.setItem(storeKey, JSON.stringify(data));
-}
-
-function addStockToStorage(storeKey, stock, updateExisting = false) {
-  const list = loadFromLocalStorage(storeKey);
-  const existing = list.find((item) => item.symbol === stock.symbol);
-
-  if (!existing) {
-    list.push(stock);
-  } else if (updateExisting) {
-    Object.assign(existing, stock);
-  }
-
-  saveToLocalStorage(STORAGE_KEYS.portfolio, portfolio);
-}
-
-function removeStockFromStorage(storeKey, symbol) {
-  const list = loadFromLocalStorage(storeKey).filter(
-    (item) => item.symbol !== symbol
-  );
-  saveToLocalStorage(STORAGE_KEYS.portfolio, portfolio);
 }
 
 function clearStorage(storeKey) {
@@ -195,24 +175,24 @@ function saveWatchlist() {
 
 // First fetch ticker quote, then fallback to fetch a name quote
 async function fetchQuote(input) {
-  // Try symbol first
   try {
-    // Try symbol first
+    // 1. Try symbol first — now hitting your backend
     const response = await fetch(
-      `https://api.twelvedata.com/quote?symbol=${encodeURIComponent(input)}&apikey=${API_KEY}`
+      `http://localhost:3000/api/stock/quote?symbol=${encodeURIComponent(input)}`
     );
     const data = await response.json();
-    if (data.code) throw new Error(data.message || 'API error');
+    if (data.error) throw new Error(data.error);
     return data; // stock quote
   } catch (err) {
     console.log('Symbol not found, falling back to name:', err);
 
-    // Fallback: try name search, and nested try block
     try {
+      // 2. Fallback: search by name — also via backend
       const response = await fetch(
-        `https://api.twelvedata.com/stocks?name=${encodeURIComponent(input)}&apikey=${API_KEY}`
+        `/api/stock/search?name=${encodeURIComponent(input)}`
       );
       const data = await response.json();
+
       const matches = data.data?.filter(
         (s) =>
           s.name &&
@@ -220,10 +200,11 @@ async function fetchQuote(input) {
           s.country === 'United States' &&
           ['NASDAQ', 'NYSE'].includes(s.exchange)
       );
+
       const match = matches?.[0];
       if (!match) return null;
 
-      // Once we have a symbol, fetch its quote
+      // 3. Once we have a symbol, fetch its quote again
       return await fetchQuote(match.symbol);
     } catch (nameErr) {
       console.error('Name lookup failed:', nameErr);

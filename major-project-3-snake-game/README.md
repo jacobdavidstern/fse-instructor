@@ -62,7 +62,7 @@ Live URL: https://fsei-snake-react-nak7n948r-jacobdavidstern.vercel.app/
 
 ## Project Structure
 
-```
+```mermaid
 src/
 ├── context/
 │   ├── GameContext.js        # Game state context
@@ -87,7 +87,6 @@ src/
 ├── App.jsx                   # Routes and context providers
 ├── main.jsx                  # App entry point
 └── constants.js              # Constants (static)
-
 ```
 
 ## License

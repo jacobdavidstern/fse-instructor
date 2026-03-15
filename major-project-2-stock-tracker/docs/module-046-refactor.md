@@ -39,11 +39,6 @@ if (refreshBtn) {
 - renderPortfolio()
 - renderWatchlist()
 
-[DRY] (I patched these, but need to debug)
-addStockToStorage() is never used
-removeStockFromStorage() is never nused
-clearStorage() is never used
-
 [low priority]
 // instructor wanted # of unique stocks rather than # of shares in HUD
 // decide whether to overwrite or add shares to portfolio when shares are in portfolio

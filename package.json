@@ -30,7 +30,7 @@
     "challenge-project"
   ],
   "devDependencies": {
-    "@awmottaz/prettier-plugin-void-html": "^1.9.0",
+    "@awmottaz/prettier-plugin-void-html": "^1.10.0",
     "@eslint/js": "^9.34.0",
     "eslint": "^9.34.0",
     "eslint-config-prettier": "^10.1.8",
