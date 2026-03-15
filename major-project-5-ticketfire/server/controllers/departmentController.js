@@ -7,10 +7,12 @@ const createDepartments = async (req, res) => {
   const { clientId } = req.params;
   const { departments } = req.body;
 
-  const docs = departments.map(d => ({
-    name: d.name,
-    slug: d.slug,
-    client: new mongoose.Types.ObjectId(clientId)
+  const docs = departments.map((d) => ({
+    // prettier-ignore
+    name: (d).name,
+    // prettier-ignore
+    slug: (d).slug,
+    client: new mongoose.Types.ObjectId(clientId),
   }));
 
   const created = await Department.create(docs);

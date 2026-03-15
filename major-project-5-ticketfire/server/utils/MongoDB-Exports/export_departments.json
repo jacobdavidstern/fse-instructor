@@ -1,0 +1,60 @@
+{
+  "departments": [
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Activities",
+      "slug": "activities",
+      "createdAt": "2026-02-22T18:59:57.616Z",
+      "updatedAt": "2026-02-22T18:59:57.616Z"
+    },
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Athletics",
+      "slug": "athletics",
+      "createdAt": "2026-02-22T18:59:57.615Z",
+      "updatedAt": "2026-02-22T18:59:57.615Z"
+    },
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Music",
+      "slug": "music",
+      "createdAt": "2026-02-22T18:59:57.616Z",
+      "updatedAt": "2026-02-22T18:59:57.616Z"
+    },
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Theatre",
+      "slug": "theatre",
+      "createdAt": "2026-02-22T18:59:57.616Z",
+      "updatedAt": "2026-02-22T18:59:57.616Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Theatre",
+      "slug": "theatre",
+      "createdAt": "2026-02-22T19:09:24.759Z",
+      "updatedAt": "2026-02-22T19:09:24.759Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Music",
+      "slug": "music",
+      "createdAt": "2026-02-22T19:09:24.759Z",
+      "updatedAt": "2026-02-22T19:09:24.759Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Activities",
+      "slug": "activities",
+      "createdAt": "2026-02-22T19:09:24.759Z",
+      "updatedAt": "2026-02-22T19:09:24.759Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Athletics",
+      "slug": "athletics",
+      "createdAt": "2026-02-22T19:09:24.759Z",
+      "updatedAt": "2026-02-22T19:09:24.759Z"
+    }
+  ]
+}

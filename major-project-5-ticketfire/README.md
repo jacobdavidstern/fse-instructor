@@ -1,37 +1,106 @@
 # TicketFire 🔥
 
-Ticketfire is a full-stack event ticketing platform designed to help organizations create, manage, and track ticketed events with a clear focus on usability, security, and maintainable architecture.
+TicketFire is a full‑stack multi-tenant event ticketing platform built to help organizations create, manage, and monitor ticketed events with an emphasis on clarity, role‑aware workflows, and secure architectural boundaries.
 
-The application is built with a React frontend and an Express.js backend, using MongoDB for persistent data storage and a clear separation of concerns between the client and server. Ticketfire supports authenticated users, multi-page navigation, and full CRUD operations around events, providing a practical foundation for scalable ticketing workflows.
+The system provides distinct client and administrator interfaces, each with tailored permissions, navigation, and UI design. A structured RBAC model governs access across the platform, ensuring that users interact only with the data and operations appropriate to their role. Authorization middleware enforces tenant isolation and resource‑level access, forming a clear security boundary between clients and the platform.
 
-On the frontend, React is used to deliver a responsive, component-driven user interface with loading and error states, reusable layout components, and form-based event creation. The UI emphasizes clarity and lean design, prioritizing core workflows over unnecessary visual complexity.
+TicketFire is built on a React frontend and an Express.js backend, with MongoDB providing persistent storage. The backend employs a layered middleware pipeline — including security headers, CORS, rate limiting, authentication, and RBAC authorization — before routing requests to business logic. This structure keeps the system predictable, maintainable, and resistant to common classes of misuse.
 
-On the backend, Express provides a RESTful API responsible for authentication, authorization boundaries, and data persistence. The server layer is structured to support future expansion, including role-based access control, reporting, and additional business logic, while keeping the MVP focused and reliable.
+On the frontend, React delivers a responsive, component‑driven interface with consistent layout primitives, structured navigation, and a unified event creation/editing workflow. The UI prioritizes usability and performance, providing clear feedback through loading states, validation, and error handling.
 
-Ticketfire was built with an MVP mindset: solving a real problem first, while deliberately documenting and deferring non-essential features. The project demonstrates practical full-stack development skills, including API design, state management, authentication flows, and clean separation of concerns between frontend and backend.
+## Design Philosophy
 
-## Future Enhancements
+TicketFire emphasizes:
 
-- Customer authentication and ticket access, allowing ticket buyers to securely view their purchased tickets online.
-- Role-based access control (RBAC) to support multiple user roles, including read-only access for ticket validation and elevated permissions for account owners.
-- Payment processing integration to support online ticket purchases.
-- Expanded reporting and analytics for event organizers.
+- Clear domain boundaries
+- Predictable routing and API structure
+- Explicit role‑aware workflows
+- Maintainable, readable code over premature abstraction
 
-## Project Structure
+The system is built with an MVP‑first mindset: implement essential workflows end‑to‑end, enforce clean separation between domains, and defer complexity until it becomes necessary. The architecture favors explicitness, using layered middleware for security, authentication, and authorization, and keeping business logic isolated from transport concerns.
 
-```
-ticketfire/
-├── client/          # Frontend React application
-└── server/          # Backend Express server
-```
+This approach reflects practical full‑stack engineering: thoughtful API design, predictable authentication flows, tenant‑aware authorization, and a UI that mirrors backend constraints. Every feature is shaped by clarity, correctness, and long‑term maintainability.
 
-### Tech Stack
+## Features
+
+TicketFire supports the core workflows required for managing multi‑tenant event operations, from client onboarding to event publishing and ticket tracking.
+
+### Automatic Numbering
+
+- Client numbers are generated automatically on creation
+- Event numbers are generated per‑client and increment sequentially
+
+### Role‑Based Access Control
+
+- Client Owners can create users and manage all client resources
+- Client Officials can create and manage events
+- Client Staff can view event details (read‑only access)
+
+### Event Management
+
+- Events can be published or unpublished
+- Ticket counts and capacity are validated
+- Doors‑open time is validated in 5‑minute increments
+
+### User Management
+
+- Duplicate emails are prevented
+- Users belong to a client and inherit client‑scoped permissions
+
+## Tech Stack
 
 - Frontend: React, Vite
 - Backend: Node.js, Express
 - Database: MongoDB
 - Auth: JWT-based authentication
 - Tooling: npm
+
+## Architecture Overview
+
+```text
+        ┌──────────────────────────┐
+        │        Frontend          │
+        │   React + Vite SPA       │
+        │                          │
+        │  Auth flows (JWT)        │
+        │  Role‑aware navigation   │
+        │  Event CRUD UI           │
+        └─────────────┬────────────┘
+                      │ HTTP (REST)
+                      ▼
+        ┌──────────────────────────┐
+        │         Backend          │
+        │       Express API        │
+        │                          │
+        │  Security middleware     │
+        │  Auth + RBAC guards      │
+        │  Tenant‑scoped routing   │
+        │  Controllers / services  │
+        └─────────────┬────────────┘
+                      │ Mongoose
+                      ▼
+        ┌──────────────────────────┐
+        │        MongoDB Atlas     │
+        │                          │
+        │  Clients                 │
+        │  Users (scoped)          │
+        │  Events (per‑client)     │
+        │  Schools / Depts / Venues│
+        └──────────────────────────┘
+```
+
+- Frontend: React + Vite SPA
+- Backend: Express API with layered middleware (security, auth, RBAC, routing)
+- Database: MongoDB Atlas with tenant‑scoped collections and indexes
+- Auth: JWT-based login with rate limiting and protected routes
+- Multi‑tenant design with per‑client event numbering and scoped access
+- Deployment: Frontend on Vercel, backend TBD
+
+## Future Enhancements
+
+- Customer authentication and ticket access, allowing ticket buyers to securely view their purchased tickets online.
+- Payment processing integration to support online ticket purchases.
+- Expanded reporting and analytics for event organizers.
 
 ## Getting Started
 
@@ -44,7 +113,7 @@ git clone https://github.com/jacobdavidstern/fse-instructor.git
 cd major-project-5-ticketfire
 ```
 
-2. Install dependencies for both client and server:
+2. Install dependencies:
 
 ```sh
 # Install server dependencies
@@ -64,11 +133,13 @@ You need to run both the frontend and backend servers independently in separate 
 
 1. Open a terminal window
 2. Navigate to the server directory:
+
 ```sh
 cd server
 ```
 
 3. Start the server:
+
 ```sh
 # For development with auto-restart
 npm run dev
@@ -77,17 +148,19 @@ npm run dev
 npm start
 ```
 
-The server will run on `http://localhost:3000` (or the port specified in your .env file)
+The server will run on `http://localhost:3001` (or the port specified in your .env file)
 
 ### Starting the Frontend Client
 
 1. Open a NEW terminal window (keep the backend running)
 2. Navigate to the client directory:
+
 ```sh
 cd client
 ```
 
 3. Start the development server:
+
 ```sh
 npm run dev
 ```
@@ -107,14 +180,20 @@ DATABASE_URL=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_here
 ```
 
-## Development Workflow
+## Core Workflows
 
-1. Start the backend server first (in one terminal)
-2. Start the frontend client second (in another terminal)
-3. Make changes to your code - both servers will auto-reload on file changes
-4. Access the application at `http://localhost:5173`
+TicketFire supports the essential multi‑tenant event lifecycle:
 
-## Available Scripts
+- Administrators onboard new clients
+- Client Owners create users (Officials and Staff)
+- Officials create and manage events
+- Staff access event details in read‑only mode
+- All operations are tenant‑scoped and role‑restricted
+
+## Sample Data
+
+- A sample node database export and script are included in `server/utils/MongoDB-Exports/`
+- **Postman Collection:** of client resources — Clients, Users, Schools, Departments, Venues, and Events
 
 ### Client
 

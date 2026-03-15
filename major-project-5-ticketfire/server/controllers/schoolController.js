@@ -8,10 +8,10 @@ const createSchools = async (req, res) => {
     const { clientId } = req.params;
     const { schools } = req.body;
 
-    const docs = schools.map(s => ({
+    const docs = schools.map((s) => ({
       name: s.name,
       slug: s.slug,
-      client: new mongoose.Types.ObjectId(clientId)
+      client: new mongoose.Types.ObjectId(clientId),
     }));
 
     const created = await School.create(docs);

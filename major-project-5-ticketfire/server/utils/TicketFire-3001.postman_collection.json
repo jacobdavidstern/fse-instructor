@@ -1,0 +1,714 @@
+{
+  "info": {
+    "_postman_id": "98685713-31a8-47b7-9d97-12b73f3009b8",
+    "name": "TicketFire:3001 (m117)",
+    "description": "endpoints for main project #4 on localhost:3001 including:\n\n\\- /register\n\n\\- /login\n\n\\- /me (with Bearer token)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49185255",
+    "_collection_link": "https://go.postman.co/collection/49185255-98685713-31a8-47b7-9d97-12b73f3009b8?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "API test",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"client@example.com\",\n  \"password\": \"password123\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/test",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "test"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register-client (S)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ecfaec0a489d372c64b194d8b4c9e7d2f52117003d44de4c3aa43edb401ef03c0be32018a55ab8be0a16d6d8437ff94a9a0a6cd50e982d6693cde87f28698823",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"slug\": \"summit\",\n  \"name\": \"Summit Owner\",\n  \"email\": \"summit@test.com\",\n  \"password\": \"password123\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/register-client",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register-client"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register-client (T)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ecfaec0a489d372c64b194d8b4c9e7d2f52117003d44de4c3aa43edb401ef03c0be32018a55ab8be0a16d6d8437ff94a9a0a6cd50e982d6693cde87f28698823",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"slug\": \"trinity\",\n  \"name\": \"Trinity Owner\",\n  \"email\": \"trinity@test.com\",\n  \"password\": \"password123\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/register-client",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register-client"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register-staff (S)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWI0ZWUyZWMxODg4NzA2YTQ2MGEwMCIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OWI0ZWUyZWMxODg4NzA2YTQ2MDlmZSIsInNsdWciOiJzdW1taXQiLCJpc1BsYXRmb3JtQWRtaW4iOmZhbHNlLCJpYXQiOjE3NzMyMTQ5NzUsImV4cCI6MTc3MzgxOTc3NX0.hAgQDZz-F3yDlaUMN9HTNXfZLJaCwomAgGXzosRsjps",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"summitstaff@test.com\",\n  \"password\": \"password123\",\n  \"role\": \"staff\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/users",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register-staff (T)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWI0ZWUyZWMxODg4NzA2YTQ2MGEwMCIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OWI0ZWUyZWMxODg4NzA2YTQ2MDlmZSIsInNsdWciOiJzdW1taXQiLCJpc1BsYXRmb3JtQWRtaW4iOmZhbHNlLCJpYXQiOjE3NzMyMTQ5NzUsImV4cCI6MTc3MzgxOTc3NX0.hAgQDZz-F3yDlaUMN9HTNXfZLJaCwomAgGXzosRsjps",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"trinitystaff@test.com\",\n  \"password\": \"password123\",\n  \"role\": \"staff\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/users",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login (S)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ecfaec0a489d372c64b194d8b4c9e7d2f52117003d44de4c3aa43edb401ef03c0be32018a55ab8be0a16d6d8437ff94a9a0a6cd50e982d6693cde87f28698823",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"summit@test.com\",\n  \"password\": \"password123\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login (T)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ecfaec0a489d372c64b194d8b4c9e7d2f52117003d44de4c3aa43edb401ef03c0be32018a55ab8be0a16d6d8437ff94a9a0a6cd50e982d6693cde87f28698823",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"trinity@test.com\",\n  \"password\": \"password123\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateDepartments (S)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTZhNDA3OGQwOTM5NTVhNjUwZGE5NyIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OTZhNDA3OGQwOTM5NTVhNjUwZGE5NSIsImlzUGxhdGZvcm1BZG1pbiI6ZmFsc2UsImlhdCI6MTc3MTU2NzczMCwiZXhwIjoxNzcyMTcyNTMwfQ.ZzcqzIAzysWNm2cX3YcLoRsUXdB6KQaDTWea9KdM0Co"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"departments\": [\n    { \"name\": \"Athletics\", \"slug\": \"athletics\" },\n    { \"name\": \"Music\", \"slug\": \"music\" },\n    { \"name\": \"Theatre\", \"slug\": \"theatre\" },\n    { \"name\": \"Activities\", \"slug\": \"activities\" }\n  ]\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{clientId}}/departments",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{clientId}}",
+            "departments"
+          ],
+          "variable": [
+            {
+              "key": "clientId",
+              "value": "{{clientId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateDepartment (T)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTZhNDBkOGQwOTM5NTVhNjUwZGE5ZCIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OTZhNDBkOGQwOTM5NTVhNjUwZGE5YiIsImlzUGxhdGZvcm1BZG1pbiI6ZmFsc2UsImlhdCI6MTc3MTU3MTIzMSwiZXhwIjoxNzcyMTc2MDMxfQ.yOFNV2X9Q-xg_ygkGl07sCvxEUvIfJE8QMHchVZCQVA",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"departments\": [\n    { \"name\": \"Athletics\", \"slug\": \"athletics\" },\n    { \"name\": \"Music\", \"slug\": \"music\" },\n    { \"name\": \"Theatre\", \"slug\": \"theatre\" },\n    { \"name\": \"Activities\", \"slug\": \"activities\" }\n  ]\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{clientId}}/departments",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{clientId}}",
+            "departments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateSchools (S)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTZhNDA3OGQwOTM5NTVhNjUwZGE5NyIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OTZhNDA3OGQwOTM5NTVhNjUwZGE5NSIsImlzUGxhdGZvcm1BZG1pbiI6ZmFsc2UsImlhdCI6MTc3MTU2NzczMCwiZXhwIjoxNzcyMTcyNTMwfQ.ZzcqzIAzysWNm2cX3YcLoRsUXdB6KQaDTWea9KdM0Co",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"schools\": [\n    { \"name\": \"Washington HS\", \"slug\": \"washington\" },\n    { \"name\": \"Loyola HS\", \"slug\": \"loyola\" }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/schools",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "schools"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateSchool (T)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTZhNDBkOGQwOTM5NTVhNjUwZGE5ZCIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OTZhNDBkOGQwOTM5NTVhNjUwZGE5YiIsImlzUGxhdGZvcm1BZG1pbiI6ZmFsc2UsImlhdCI6MTc3MTU3MTIzMSwiZXhwIjoxNzcyMTc2MDMxfQ.yOFNV2X9Q-xg_ygkGl07sCvxEUvIfJE8QMHchVZCQVA",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"schools\": [\n    { \"name\": \"Marshall HS\", \"slug\": \"marshall\" },\n    { \"name\": \"Warren HS\", \"slug\": \"warren\" }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/schools",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "schools"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateVenue (S)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTZhNDA3OGQwOTM5NTVhNjUwZGE5NyIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OTZhNDA3OGQwOTM5NTVhNjUwZGE5NSIsImlzUGxhdGZvcm1BZG1pbiI6ZmFsc2UsImlhdCI6MTc3MTU2NzczMCwiZXhwIjoxNzcyMTcyNTMwfQ.ZzcqzIAzysWNm2cX3YcLoRsUXdB6KQaDTWea9KdM0Co",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"venues\": [\n    { \"name\": \"Washington Performing Arts Center\", \"slug\": \"washington_pac\", \"capacity\": 100 },\n    { \"name\": \"Washington Gymnasium\", \"slug\": \"washington_gym\", \"capacity\": 100 },\n    { \"name\": \"Washington Auditorium\", \"slug\": \"washington_auditorium\", \"capacity\": 100 },\n    { \"name\": \"Washington Natatorium\", \"slug\": \"washington_pool\", \"capacity\": 100 },\n    { \"name\": \"Loyola Performing Arts Center\", \"slug\": \"loyola_pac\", \"capacity\": 100 },\n    { \"name\": \"Loyola Gymnasium\", \"slug\": \"loyola_gym\", \"capacity\": 100 },\n    { \"name\": \"Loyola Auditorium\", \"slug\": \"loyola_auditorium\", \"capacity\": 100 },\n    { \"name\": \"Loyola Natatorium\", \"slug\": \"loyola_pool\", \"capacity\": 100 }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/venues",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "venues"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateVenue (T)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTZhNDBkOGQwOTM5NTVhNjUwZGE5ZCIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OTZhNDBkOGQwOTM5NTVhNjUwZGE5YiIsImlzUGxhdGZvcm1BZG1pbiI6ZmFsc2UsImlhdCI6MTc3MTU3MTIzMSwiZXhwIjoxNzcyMTc2MDMxfQ.yOFNV2X9Q-xg_ygkGl07sCvxEUvIfJE8QMHchVZCQVA",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"venues\": [\n    { \"name\": \"Marshall Performing Arts Center\", \"slug\": \"marshall_pac\", \"capacity\": 100 },\n    { \"name\": \"Marshall Gymnasium\", \"slug\": \"marshall_gym\", \"capacity\": 100 },\n    { \"name\": \"Marshall Auditorium\", \"slug\": \"marshall_auditorium\", \"capacity\": 100 },\n    { \"name\": \"Marshall Natatorium\", \"slug\": \"marshall_pool\", \"capacity\": 100 },\n    { \"name\": \"Warren Performing Arts Center\", \"slug\": \"warren_pac\", \"capacity\": 100 },\n    { \"name\": \"Warren Gymnasium\", \"slug\": \"warren_gym\", \"capacity\": 100 },\n    { \"name\": \"Warren Auditorium\", \"slug\": \"warren_auditorium\", \"capacity\": 100 },\n    { \"name\": \"Warren Natatorium\", \"slug\": \"warren_pool\", \"capacity\": 100 }\n  ]\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/venues",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "venues"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateEvents (S)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTZhNDA3OGQwOTM5NTVhNjUwZGE5NyIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OTZhNDA3OGQwOTM5NTVhNjUwZGE5NSIsImlzUGxhdGZvcm1BZG1pbiI6ZmFsc2UsImlhdCI6MTc3MTYwOTY4MywiZXhwIjoxNzcyMjE0NDgzfQ.vGmUfEikWu3-YrKNY_kyJ5wN6blTmKZhqt4MKN9ZFoo",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"events\": [\n  {\n    \"event_name\": \"Boys Basketball: Washington Huskies vs Loyola Leopards\",\n    \"school_slug\": \"washington\",\n    \"department_slug\": \"athletics\",\n    \"venue_slug\": \"washington_gym\",\n    \"start_at\": \"2026-03-03T19:00:00\",\n    \"end_at\": \"2026-03-03T21:00:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  },\n  {\n    \"event_name\": \"Boys Basketball: Loyola Leopards vs Washington Huskies\",\n    \"school_slug\": \"loyola\",\n    \"department_slug\": \"athletics\",\n    \"venue_slug\": \"loyola_gym\",\n    \"start_at\": \"2026-03-04T19:00:00\",\n    \"end_at\": \"2026-03-04T21:00:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  },\n  {\n    \"event_name\": \"Girls Basketball: Washington Huskies vs Loyola Leopards\",\n    \"school_slug\": \"washington\",\n    \"department_slug\": \"athletics\",\n    \"venue_slug\": \"washington_gym\",\n    \"start_at\": \"2026-03-06T19:00:00\",\n    \"end_at\": \"2026-03-06T21:00:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  },\n  {\n    \"event_name\": \"Girls Basketball: Loyola Leopards vs Washington Huskies\",\n    \"school_slug\": \"loyola\",\n    \"department_slug\": \"athletics\",\n    \"venue_slug\": \"loyola_gym\",\n    \"start_at\": \"2026-03-07T19:00:00\",\n    \"end_at\": \"2026-03-07T21:00:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  },\n  {\n    \"event_name\": \"Swimming Dual Meet: Washington vs Loyola\",\n    \"school_slug\": \"washington\",\n    \"department_slug\": \"athletics\",\n    \"venue_slug\": \"washington_pool\",\n    \"start_at\": \"2026-03-10T19:00:00\",\n    \"end_at\": \"2026-03-10T21:00:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  },\n  {\n    \"event_name\": \"Swimming Dual Meet: Loyola vs Washington\",\n    \"school_slug\": \"loyola\",\n    \"department_slug\": \"athletics\",\n    \"venue_slug\": \"loyola_pool\",\n    \"start_at\": \"2026-03-17T19:00:00\",\n    \"end_at\": \"2026-03-17T21:00:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  },\n  {\n    \"event_name\": \"Theatre: The Glitch in the System\",\n    \"school_slug\": \"washington\",\n    \"department_slug\": \"theatre\",\n    \"venue_slug\": \"washington_auditorium\",\n    \"start_at\": \"2026-03-15T19:00:00\",\n    \"end_at\": \"2026-03-15T21:00:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  },\n  {\n    \"event_name\": \"Theatre: Echoes of the Concrete\",\n    \"school_slug\": \"loyola\",\n    \"department_slug\": \"theatre\",\n    \"venue_slug\": \"loyola_auditorium\",\n    \"start_at\": \"2026-03-18T19:00:00\",\n    \"end_at\": \"2026-03-18T21:00:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  },\n  {\n    \"event_name\": \"Music: Washington Lo-Fi & Strings Showcase\",\n    \"school_slug\": \"washington\",\n    \"department_slug\": \"music\",\n    \"venue_slug\": \"washington_pac\",\n    \"start_at\": \"2026-03-20T19:00:00\",\n    \"end_at\": \"2026-03-20T21:00:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  },\n  {\n    \"event_name\": \"Music: Loyola Synth-Pop & Percussion Night\",\n    \"school_slug\": \"loyola\",\n    \"department_slug\": \"music\",\n    \"venue_slug\": \"loyola_pac\",\n    \"start_at\": \"2026-03-22T19:00:00\",\n    \"end_at\": \"2026-03-22T21:00:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  },\n  {\n    \"event_name\": \"Dance: Urban Pulse: Street Styles\",\n    \"school_slug\": \"washington\",\n    \"department_slug\": \"activities\",\n    \"venue_slug\": \"washington_gym\",\n    \"start_at\": \"2026-03-28T19:00:00\",\n    \"end_at\": \"2026-03-28T21:30:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  },\n  {\n    \"event_name\": \"Dance: Velocity: A Digital Horizon\",\n    \"school_slug\": \"loyola\",\n    \"department_slug\": \"activities\",\n    \"venue_slug\": \"loyola_gym\",\n    \"start_at\": \"2026-03-30T19:00:00\",\n    \"end_at\": \"2026-03-30T21:30:00.000Z\",\n    \"doors_open_before\": 30,\n    \"total_tickets\": 24,\n    \"published\": true\n  }\n]\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/events",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "events"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateEvents (T)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTZhNDBkOGQwOTM5NTVhNjUwZGE5ZCIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OTZhNDBkOGQwOTM5NTVhNjUwZGE5YiIsImlzUGxhdGZvcm1BZG1pbiI6ZmFsc2UsImlhdCI6MTc3MTYyMzU2NiwiZXhwIjoxNzcyMjI4MzY2fQ.THDenL4YRJ4TOEbYv_hZLmVzbsd2NqLz4GjzWdkyvdw",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"events\": [\n    {\n      \"event_name\": \"Boys Basketball: Marshall Bees vs Warren Rattlers\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"marshall_gym\",\n      \"start_at\": \"2025-03-03T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Boys Basketball: Warren Rattlers vs Marshall Bees\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"warren_gym\",\n      \"start_at\": \"2025-03-04T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Girls Basketball: Marshall Bees vs Warren Rattlers\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"marshall_gym\",\n      \"start_at\": \"2025-03-06T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Girls Basketball: Warren Rattlers vs Marshall Bees\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"warren_gym\",\n      \"start_at\": \"2025-03-07T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Swimming Dual Meet: Marshall vs Warren\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"marshall_pool\",\n      \"start_at\": \"2025-03-10T17:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Swimming Dual Meet: Warren vs Marshall\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"warren_pool\",\n      \"start_at\": \"2025-03-17T17:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n\n    {\n      \"event_name\": \"Theatre: Saved by the Bell\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"theatre\",\n      \"venue_slug\": \"marshall_pac\",\n      \"start_at\": \"2025-03-15T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Theatre: The Last Light\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"theatre\",\n      \"venue_slug\": \"warren_pac\",\n      \"start_at\": \"2025-03-18T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n\n    {\n      \"event_name\": \"Music: Marshall Jazz Collective – Spring Concert\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"music\",\n      \"venue_slug\": \"marshall_pac\",\n      \"start_at\": \"2025-03-20T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Music: Warren Modern Ensemble Live Concert\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"music\",\n      \"venue_slug\": \"warren_pac\",\n      \"start_at\": \"2025-03-22T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n\n    {\n      \"event_name\": \"Dance: Spring Fling Dance\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"activities\",\n      \"venue_slug\": \"marshall_auditorium\",\n      \"start_at\": \"2025-03-28T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Dance: Neon Nights Dance\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"activities\",\n      \"venue_slug\": \"warren_auditorium\",\n      \"start_at\": \"2025-03-30T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    }\n  ]\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/events",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "events"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetEvents (S)",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWI0ZWUyZWMxODg4NzA2YTQ2MGEwMCIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OWI0ZWUyZWMxODg4NzA2YTQ2MDlmZSIsInNsdWciOiJzdW1taXQiLCJpc1BsYXRmb3JtQWRtaW4iOmZhbHNlLCJpYXQiOjE3NzE3ODYwNzUsImV4cCI6MTc3MjM5MDg3NX0.jelooZfAqD8e4-H6ffhQ3WoVOIpYa5pz8SNdondlKWg",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/events",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "events"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetEvents (T)",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWI0ZWYxZWMxODg4NzA2YTQ2MGEwNiIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OWI0ZWYxZWMxODg4NzA2YTQ2MGEwNCIsInNsdWciOiJ0cmluaXR5IiwiaXNQbGF0Zm9ybUFkbWluIjpmYWxzZSwiaWF0IjoxNzcxNzg3MjAzLCJleHAiOjE3NzIzOTIwMDN9.6QDoSZW6jBQUTl8m0aQeqBBCFU0E0r1vaJO62wz4EbE",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"events\": [\n    {\n      \"event_name\": \"Boys Basketball: Marshall Bees vs Warren Rattlers\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"marshall_gym\",\n      \"start_at\": \"2025-03-03T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Boys Basketball: Warren Rattlers vs Marshall Bees\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"warren_gym\",\n      \"start_at\": \"2025-03-04T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Girls Basketball: Marshall Bees vs Warren Rattlers\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"marshall_gym\",\n      \"start_at\": \"2025-03-06T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Girls Basketball: Warren Rattlers vs Marshall Bees\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"warren_gym\",\n      \"start_at\": \"2025-03-07T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Swimming Dual Meet: Marshall vs Warren\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"marshall_pool\",\n      \"start_at\": \"2025-03-10T17:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Swimming Dual Meet: Warren vs Marshall\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"athletics\",\n      \"venue_slug\": \"warren_pool\",\n      \"start_at\": \"2025-03-17T17:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n\n    {\n      \"event_name\": \"Theatre: Saved by the Bell\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"theatre\",\n      \"venue_slug\": \"marshall_pac\",\n      \"start_at\": \"2025-03-15T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Theatre: The Last Light\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"theatre\",\n      \"venue_slug\": \"warren_pac\",\n      \"start_at\": \"2025-03-18T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n\n    {\n      \"event_name\": \"Music: Marshall Jazz Collective – Spring Concert\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"music\",\n      \"venue_slug\": \"marshall_pac\",\n      \"start_at\": \"2025-03-20T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Music: Warren Modern Ensemble Live Concert\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"music\",\n      \"venue_slug\": \"warren_pac\",\n      \"start_at\": \"2025-03-22T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n\n    {\n      \"event_name\": \"Dance: Spring Fling Dance\",\n      \"school_slug\": \"marshall\",\n      \"department_slug\": \"activities\",\n      \"venue_slug\": \"marshall_auditorium\",\n      \"start_at\": \"2025-03-28T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    },\n    {\n      \"event_name\": \"Dance: Neon Nights Dance\",\n      \"school_slug\": \"warren\",\n      \"department_slug\": \"activities\",\n      \"venue_slug\": \"warren_auditorium\",\n      \"start_at\": \"2025-03-30T19:00:00-07:00\",\n      \"doors_open_before\": 30,\n      \"total_tickets\": 24,\n      \"published\": true\n    }\n  ]\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/events",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "events"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetEvent-6 (S)",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWI0ZWUyZWMxODg4NzA2YTQ2MGEwMCIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OWI0ZWUyZWMxODg4NzA2YTQ2MDlmZSIsInNsdWciOiJzdW1taXQiLCJpc1BsYXRmb3JtQWRtaW4iOmZhbHNlLCJpYXQiOjE3NzE3ODYwNzUsImV4cCI6MTc3MjM5MDg3NX0.jelooZfAqD8e4-H6ffhQ3WoVOIpYa5pz8SNdondlKWg",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/events/6",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "events",
+            "6"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetEvent-6 (T)",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWI0ZWYxZWMxODg4NzA2YTQ2MGEwNiIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OWI0ZWYxZWMxODg4NzA2YTQ2MGEwNCIsInNsdWciOiJ0cmluaXR5IiwiaXNQbGF0Zm9ybUFkbWluIjpmYWxzZSwiaWF0IjoxNzcxNzg3MjAzLCJleHAiOjE3NzIzOTIwMDN9.6QDoSZW6jBQUTl8m0aQeqBBCFU0E0r1vaJO62wz4EbE",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/events/6",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "events",
+            "6"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetSchools (S)",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWI0ZWUyZWMxODg4NzA2YTQ2MGEwMCIsInJvbGUiOiJvd25lciIsImNsaWVudCI6IjY5OWI0ZWUyZWMxODg4NzA2YTQ2MDlmZSIsInNsdWciOiJzdW1taXQiLCJpc1BsYXRmb3JtQWRtaW4iOmZhbHNlLCJpYXQiOjE3NzE3ODYwNzUsImV4cCI6MTc3MjM5MDg3NX0.jelooZfAqD8e4-H6ffhQ3WoVOIpYa5pz8SNdondlKWg",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/{{client_id}}/events",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "{{client_id}}",
+            "events"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

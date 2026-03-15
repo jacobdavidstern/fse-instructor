@@ -4,11 +4,12 @@ const mongoose = require('mongoose');
 
 const departmentSchema = new mongoose.Schema(
   {
+    // Fields object, document fields in MongoDB
     client: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Client',
       required: true,
-      index: true
+      index: true,
     },
 
     name: {
@@ -16,17 +17,23 @@ const departmentSchema = new mongoose.Schema(
       required: true,
       trim: true,
       minlength: 2,
-      maxlength: 100
+      maxlength: 100,
     },
 
     slug: {
       type: String,
       required: true,
       trim: true,
-      lowercase: true
-    }
+      lowercase: true,
+    },
   },
-  { timestamps: true }
+  {
+    // Schema options object, defines behavior, Mongoose
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
+  }
 );
 
 // Prevent duplicate departments per client

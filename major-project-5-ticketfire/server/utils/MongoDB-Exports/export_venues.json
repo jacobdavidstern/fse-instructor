@@ -1,0 +1,132 @@
+{
+  "venues": [
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Washington Gymnasium",
+      "slug": "washington_gym",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:05:20.531Z",
+      "updatedAt": "2026-02-22T19:05:20.531Z"
+    },
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Washington Auditorium",
+      "slug": "washington_auditorium",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:05:20.531Z",
+      "updatedAt": "2026-02-22T19:05:20.531Z"
+    },
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Loyola Performing Arts Center",
+      "slug": "loyola_pac",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:05:20.531Z",
+      "updatedAt": "2026-02-22T19:05:20.531Z"
+    },
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Washington Natatorium",
+      "slug": "washington_pool",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:05:20.531Z",
+      "updatedAt": "2026-02-22T19:05:20.531Z"
+    },
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Washington Performing Arts Center",
+      "slug": "washington_pac",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:05:20.531Z",
+      "updatedAt": "2026-02-22T19:05:20.531Z"
+    },
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Loyola Natatorium",
+      "slug": "loyola_pool",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:05:20.531Z",
+      "updatedAt": "2026-02-22T19:05:20.531Z"
+    },
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Loyola Auditorium",
+      "slug": "loyola_auditorium",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:05:20.531Z",
+      "updatedAt": "2026-02-22T19:05:20.531Z"
+    },
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Loyola Gymnasium",
+      "slug": "loyola_gym",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:05:20.531Z",
+      "updatedAt": "2026-02-22T19:05:20.531Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Marshall Performing Arts Center",
+      "slug": "marshall_pac",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:15:33.459Z",
+      "updatedAt": "2026-02-22T19:15:33.459Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Marshall Gymnasium",
+      "slug": "marshall_gym",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:15:33.459Z",
+      "updatedAt": "2026-02-22T19:15:33.459Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Marshall Auditorium",
+      "slug": "marshall_auditorium",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:15:33.459Z",
+      "updatedAt": "2026-02-22T19:15:33.459Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Marshall Natatorium",
+      "slug": "marshall_pool",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:15:33.459Z",
+      "updatedAt": "2026-02-22T19:15:33.459Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Warren Auditorium",
+      "slug": "warren_auditorium",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:15:33.460Z",
+      "updatedAt": "2026-02-22T19:15:33.460Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Warren Performing Arts Center",
+      "slug": "warren_pac",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:15:33.459Z",
+      "updatedAt": "2026-02-22T19:15:33.459Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Warren Gymnasium",
+      "slug": "warren_gym",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:15:33.459Z",
+      "updatedAt": "2026-02-22T19:15:33.459Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Warren Natatorium",
+      "slug": "warren_pool",
+      "capacity": 100,
+      "createdAt": "2026-02-22T19:15:33.460Z",
+      "updatedAt": "2026-02-22T19:15:33.460Z"
+    }
+  ]
+}

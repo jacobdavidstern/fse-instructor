@@ -1,0 +1,32 @@
+{
+  "schools": [
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Washington HS",
+      "slug": "washington",
+      "createdAt": "2026-02-22T19:00:36.081Z",
+      "updatedAt": "2026-02-22T19:00:36.081Z"
+    },
+    {
+      "client": "699b4ee2ec1888706a4609fe",
+      "name": "Loyola HS",
+      "slug": "loyola",
+      "createdAt": "2026-02-22T19:00:36.081Z",
+      "updatedAt": "2026-02-22T19:00:36.081Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Warren HS",
+      "slug": "warren",
+      "createdAt": "2026-02-22T19:14:55.590Z",
+      "updatedAt": "2026-02-22T19:14:55.590Z"
+    },
+    {
+      "client": "699b4ef1ec1888706a460a04",
+      "name": "Marshall HS",
+      "slug": "marshall",
+      "createdAt": "2026-02-22T19:14:55.590Z",
+      "updatedAt": "2026-02-22T19:14:55.590Z"
+    }
+  ]
+}

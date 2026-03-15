@@ -1,13 +1,12 @@
 // server/routes/authRoutes.js
+// Authentication management: login, register, issue JWT, verify credentials
 
 const express = require('express');
 const router = express.Router();
 
+const { registerClient, registerUser, login } = require('../controllers/authController'); // prettier-ignore
 const { protect } = require('../middleware/authMiddleware');
-const { authorizeClientAccess } = require('../middleware/authorizeClientAccess');
 const { authorizeRole } = require('../middleware/authorizeRole');
-const { registerClient, registerUser, login } = require('../controllers/authController');
-const { loginLimiter } = require('../middleware/rateLimiters');
 
 // DEBUG express 5 endpoints can only be captured at definition
 const { register } = require('../routeRegistry');
@@ -27,7 +26,6 @@ router.post(
   // DEBUG express 5 endpoints can only be captured at definition
   register('POST', '/:clientId/users', PREFIX),
   protect,
-  authorizeClientAccess,
   authorizeRole('owner'),
   registerUser
 );

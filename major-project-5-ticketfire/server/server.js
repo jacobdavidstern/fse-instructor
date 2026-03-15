@@ -3,10 +3,14 @@
 require('dotenv').config();
 const express = require('express');
 const connectDB = require('./config/db');
-const rateLimit = require('express-rate-limit');
-const security = require('./middleware/security');
 const corsConfig = require('./middleware/corsConfig');
-
+// Rate limiters
+const {
+  apiLimiter,
+  authLimiter,
+  loginLimiter,
+} = require('./middleware/rateLimiters');
+const security = require('./middleware/security');
 const app = express();
 
 // Trust proxy for correct IPs (Vercel, Render, etc.)
@@ -17,9 +21,6 @@ app.use(security);
 app.use(corsConfig);
 app.use(express.json());
 
-// Rate limiters
-const { apiLimiter, authLimiter, loginLimiter } = require('./middleware/rateLimiters');
-
 app.use('/api/auth/login', loginLimiter);
 app.use('/api/auth', authLimiter);
 app.use('/api', apiLimiter);
@@ -29,10 +30,11 @@ const apiRoutes = require('./routes');
 app.use('/api', apiRoutes);
 
 // DEBUG Health Route
-app.get('/api/test', (req, res) => {
-    if (process.env.NODE_ENV === 'development') {
-  res.json({ message: 'Backend is working!' });
-}});
+if (process.env.NODE_ENV === 'development') {
+  app.get('/api/test', (req, res) => {
+    res.json({ message: 'Backend is working!' });
+  });
+}
 
 // Start server after DB connects
 const startServer = async () => {
@@ -40,14 +42,15 @@ const startServer = async () => {
     await connectDB();
     const PORT = process.env.PORT || 3001;
 
-    // DEBUG Temporarily log all routes at startup
-    const { registry } = require('./routeRegistry');
-    console.log(registry);
+    // DEBUG Log all routes at startup in development
+    if (process.env.NODE_ENV === 'development') {
+      const { registry } = require('./routeRegistry');
+      console.log(registry);
+    }
 
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
-
   } catch (err) {
     console.error('Failed to start server:', err.message);
     process.exit(1);

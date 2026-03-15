@@ -4,34 +4,38 @@ const mongoose = require('mongoose');
 
 const venueSchema = new mongoose.Schema(
   {
+    // Fields object, document fields in MongoDB
     client: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Client',
       required: true,
-      index: true
+      index: true,
     },
-
     name: {
       type: String,
       required: true,
       trim: true,
       minlength: 2,
-      maxlength: 150
+      maxlength: 150,
     },
-
     slug: {
       type: String,
       required: true,
       trim: true,
-      lowercase: true
+      lowercase: true,
     },
-
     capacity: {
       type: Number,
-      min: 1
-    }
+      min: 1,
+    },
   },
-  { timestamps: true }
+  {
+    // Schema options object, defines behavior, Mongoose
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
+  }
 );
 
 // Prevent duplicate venues per client

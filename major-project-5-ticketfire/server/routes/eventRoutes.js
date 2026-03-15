@@ -2,46 +2,56 @@
 
 const express = require('express');
 const router = express.Router();
-const { register } = require('../routeRegistry');
-
-const { protect } = require('../middleware/authMiddleware');
-const { authorizeClientAccess } = require('../middleware/authorizeClientAccess');
-const { authorizeRole } = require('../middleware/authorizeRole');
 
 const {
   createEvent,
   getEvent,
-  getEvents
+  getEvents,
+  updateEvent,
 } = require('../controllers/eventController');
 
-// Get all events for a client
-router.get('/:clientId/events',
+const { protect } = require('../middleware/authMiddleware');
+const { authorizeRole } = require('../middleware/authorizeRole');
+
+const { register } = require('../routeRegistry');
+
+// Get all events for a client (slug-based)
+router.get(
+  '/:slug/events',
   protect,
-  authorizeClientAccess,
   authorizeRole('staff', 'official', 'owner'),
   // DEBUG express 5 endpoints can only be captured at definition
-  register('GET', '/:clientId/events', '/api'),
+  register('GET', '/:slug/events', '/api'),
   getEvents
 );
 
-// Get a single event
-router.get('/:clientId/events/:eventId',
+// Get a single event by eventNumber
+router.get(
+  '/:slug/events/:eventNumber',
   protect,
-  authorizeClientAccess,
   authorizeRole('staff', 'official', 'owner'),
   // DEBUG express 5 endpoints can only be captured at definition
-  register('GET', '/:clientId/events/:eventId', '/api'),
+  register('GET', '/:slug/events/:eventNumber', '/api'),
   getEvent
 );
 
 // Create new event
-router.post('/:clientId/events',
+router.post(
+  '/:slug/events',
   protect,
-  authorizeClientAccess,
+  authorizeRole('official', 'owner'),
+  register('POST', '/:slug/events', '/api'),
+  createEvent
+);
+
+// Update event (edit + publish/unpublish)
+router.patch(
+  '/:slug/events/:eventNumber',
+  protect,
   authorizeRole('official', 'owner'),
   // DEBUG express 5 endpoints can only be captured at definition
-  register('POST', '/:clientId/events', '/api'),
-  createEvent
+  register('PATCH', '/:slug/events/:eventNumber', '/api'),
+  updateEvent
 );
 
 module.exports = router;

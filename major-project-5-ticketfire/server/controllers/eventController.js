@@ -3,168 +3,232 @@
 const mongoose = require('mongoose');
 
 const Client = require('../models/Client');
+const Department = require('../models/Department');
 const Event = require('../models/Event');
 const School = require('../models/School');
-const Department = require('../models/Department');
 const Venue = require('../models/Venue');
 
+// CREATE EVENT (slug-based)
 const createEvent = async (req, res) => {
-  const { clientId } = req.params;
-  // Debug
-  console.log("REQ BODY:", req.body);
-  if (!mongoose.Types.ObjectId.isValid(clientId)) {
-    return res.status(400).json({ message: 'Invalid client id' });
-  }
-
-  const session = await mongoose.startSession();
-  session.startTransaction();
+  const { slug } = req.params;
 
   try {
-    const events = Array.isArray(req.body.events)
-      ? req.body.events
-      : [req.body];
-
-    if (events.length === 0) {
-      throw new Error('No events provided');
+    // Resolve slug → client
+    const client = await Client.findOne({ slug });
+    if (!client) {
+      return res.status(404).json({ message: 'Client not found' });
     }
 
-    // Increment client counter ONCE by number of events
-    const client = await Client.findByIdAndUpdate(
-      clientId,
-      { $inc: { eventCounter: events.length } },
-      { new: true, session }
-    );
+    const clientId = client._id;
 
-    if (!client) throw new Error('Client not found');
+    const session = await mongoose.startSession();
+    session.startTransaction();
 
-    const startingEventId = client.eventCounter - events.length + 1;
+    try {
+      const events = Array.isArray(req.body.events)
+        ? req.body.events
+        : [req.body];
 
-    const createdEvents = [];
+      if (events.length === 0) {
+        throw new Error('No events provided');
+      }
 
-    for (let i = 0; i < events.length; i++) {
-      const {
-        event_name,
-        school_slug,
-        department_slug,
-        venue_slug,
-        start_at,
-        doors_open_before,
-        total_tickets,
-        published
-      } = events[i];
+      // Increment client counter ONCE by number of events
+      const updatedClient = await Client.findByIdAndUpdate(
+        clientId,
+        { $inc: { eventCounter: events.length } },
+        { new: true, session }
+      );
 
-      const schoolDoc = await School.findOne({
-        slug: school_slug,
-        client: clientId
-      }).session(session);
+      if (!updatedClient) throw new Error('Client not found');
 
-      if (!schoolDoc) throw new Error(`Invalid school: ${school_slug}`);
+      const startingEventNumber =
+        updatedClient.eventCounter - events.length + 1;
 
-      const departmentDoc = await Department.findOne({
-        slug: department_slug,
-        client: clientId
-      }).session(session);
+      const createdEvents = [];
 
-      if (!departmentDoc) throw new Error(`Invalid department: ${department_slug}`);
+      // Fetch default related entities for this client
+      const defaultSchool = await School.findOne({ client: clientId }).session(session); // prettier-ignore
+      const defaultDepartment = await Department.findOne({ client: clientId }).session(session); // prettier-ignore
+      const defaultVenue = await Venue.findOne({ client: clientId }).session(session); // prettier-ignore
+      const defaultSchoolId = defaultSchool?._id;
+      const defaultDepartmentId = defaultDepartment?._id;
+      const defaultVenueId = defaultVenue?._id;
 
-      const venueDoc = await Venue.findOne({
-        slug: venue_slug,
-        client: clientId
-      }).session(session);
+      for (let i = 0; i < events.length; i++) {
+        const {
+          event_name = 'Untitled Event',
+          school = defaultSchoolId,
+          department = defaultDepartmentId,
+          venue = defaultVenueId,
+          start_at = new Date(),
+          end_at = new Date(Date.now() + 60 * 60 * 1000),
+          doors_open_before = 30,
+          total_tickets = 24,
+          published = true,
+        } = events[i];
 
-      if (!venueDoc) throw new Error(`Invalid venue: ${venue_slug}`);
+        // Validate school
+        const schoolDoc = await School.findOne({
+          _id: school,
+          client: clientId,
+        }).session(session);
 
-      createdEvents.push({
-        client: clientId,
-        eventId: startingEventId + i,
-        event_name,
-        school: schoolDoc._id,
-        department: departmentDoc._id,
-        venue: venueDoc._id,
-        start_at,
-        doors_open_before,
-        total_tickets,
-        published
+        if (!schoolDoc) throw new Error(`Invalid school: ${school}`);
+
+        // Validate department
+        const departmentDoc = await Department.findOne({
+          _id: department,
+          client: clientId,
+        }).session(session);
+
+        if (!departmentDoc)
+          throw new Error(`Invalid department: ${department}`);
+
+        // Validate venue
+        const venueDoc = await Venue.findOne({
+          _id: venue,
+          client: clientId,
+        }).session(session);
+
+        if (!venueDoc) throw new Error(`Invalid venue: ${venue}`);
+
+        createdEvents.push({
+          client: clientId,
+          event_number: startingEventNumber + i,
+          event_name,
+          school,
+          department,
+          venue,
+          start_at,
+          end_at,
+          doors_open_before,
+          total_tickets,
+          published,
+        });
+      }
+
+      await Event.insertMany(createdEvents, { session });
+
+      await session.commitTransaction();
+      session.endSession();
+
+      res.status(201).json({
+        created: createdEvents.length,
+        eventNumbers: createdEvents.map((e) => e.event_number),
       });
+    } catch (error) {
+      await session.abortTransaction();
+      session.endSession();
+
+      console.error('CREATE EVENT ERROR:', error);
+      res.status(400).json({ message: error.message });
     }
-
-    await Event.insertMany(createdEvents, { session });
-
-    await session.commitTransaction();
-    session.endSession();
-
-    res.status(201).json({
-      created: createdEvents.length,
-      eventIds: createdEvents.map(e => e.eventId)
-    });
-
-  } catch (error) {
-    await session.abortTransaction();
-    session.endSession();
-
-    console.error('CREATE EVENT ERROR:', error);
-    res.status(400).json({ message: error.message });
+  } catch (outerError) {
+    console.error('CREATE EVENT OUTER ERROR:', outerError);
+    res.status(500).json({ message: outerError.message });
   }
 };
 
+// GET SINGLE EVENT (slug-based)
 const getEvent = async (req, res) => {
   try {
-    const { clientId, eventId } = req.params;
+    const { slug, eventNumber } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(clientId)) {
-      return res.status(400).json({ message: 'Invalid client id' });
+    const client = await Client.findOne({ slug });
+    if (!client) {
+      return res.status(404).json({ message: 'Client not found' });
     }
 
     const event = await Event.findOne({
-      client: clientId,
-      eventId: Number(eventId)
+      client: client._id,
+      event_number: Number(eventNumber),
     })
       .populate('school', 'name')
       .populate('department', 'name')
       .populate('venue', 'name')
-      .select(
-        'eventId event_name school department venue start_at doors_open_before total_tickets tickets_sold published created_at -_id'
-      )
       .lean();
 
     if (!event) {
       return res.status(404).json({ message: 'Event not found' });
     }
 
-    res.json(event);
+    res.json({
+      ...event,
+      eventNumber: event.event_number,
+    });
   } catch (error) {
     console.error('GET EVENT ERROR:', error);
     res.status(500).json({ message: 'Failed to fetch event' });
   }
 };
 
+// GET ALL EVENTS (slug-based)
 const getEvents = async (req, res) => {
   try {
-    const { clientId } = req.params;
+    const { slug } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(clientId)) {
-      return res.status(400).json({ message: 'Invalid client id' });
+    const client = await Client.findOne({ slug });
+    if (!client) {
+      return res.status(404).json({ message: 'Client not found' });
     }
 
     const events = await Event.find({
-      client: clientId,
-      published: true
+      client: client._id,
     })
-      .sort({ eventId: -1 })
+      .sort({ start_at: 1, event_number: -1 })
       .populate('school', 'name')
       .populate('department', 'name')
       .populate('venue', 'name')
-      .select(
-        'eventId event_name school department venue start_at doors_open_before total_tickets tickets_sold published created_at -_id'
-      )
       .lean();
 
-    res.json(events);
+    res.json({
+      client: {
+        name: client.name,
+        slug: client.slug,
+      },
+      events: events.map((e) => ({
+        ...e,
+        eventNumber: e.event_number,
+      })),
+    });
   } catch (error) {
     console.error('GET EVENTS ERROR:', error);
     res.status(500).json({ message: 'Failed to fetch events' });
   }
 };
 
-// EXPORTS (must be at the bottom to avoid TDZ errors)
-module.exports = { createEvent, getEvent, getEvents };
+// UPDATE EVENT (slug-based)
+const updateEvent = async (req, res) => {
+  try {
+    const { slug, eventNumber } = req.params;
+
+    const client = await Client.findOne({ slug });
+    if (!client) {
+      return res.status(404).json({ message: 'Client not found' });
+    }
+
+    const updated = await Event.findOneAndUpdate(
+      {
+        client: client._id,
+        event_number: Number(eventNumber),
+      },
+      req.body,
+      { new: true }
+    );
+
+    if (!updated) {
+      return res.status(404).json({ message: 'Event not found' });
+    }
+
+    res.json({
+      message: 'Event updated',
+      event: updated,
+    });
+  } catch (error) {
+    console.error('UPDATE EVENT ERROR:', error);
+    res.status(500).json({ message: 'Failed to update event' });
+  }
+};
+
+module.exports = { createEvent, getEvent, getEvents, updateEvent };

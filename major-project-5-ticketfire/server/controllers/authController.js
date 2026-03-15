@@ -1,18 +1,18 @@
 // server/controllers/authController.js
 
-const Client = require('../models/Client');
-const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
+const Client = require('../models/Client');
 const Counter = require('../models/Counter');
+const User = require('../models/User');
 
 const registerClient = async (req, res) => {
   const session = await mongoose.startSession();
   session.startTransaction();
 
   try {
-    const { clientSlug, name, email, password } = req.body;
+    const { slug, name, email, password } = req.body;
 
     // Use a MongoDB session to atomically create the Client and its Owner user.
     // This prevents partial writes (e.g., a Client without an Owner) if one step fails.
@@ -37,23 +37,27 @@ const registerClient = async (req, res) => {
 
     // Create client with auto clientNumber
     const [client] = await Client.create(
-      [{
-        clientSlug,
-        name: clientSlug,
-        clientNumber
-      }],
+      [
+        {
+          slug, // correct
+          name, // correct
+          clientNumber,
+        },
+      ],
       { session }
     );
 
     // Create owner user
     await User.create(
-      [{
-        name,
-        email,
-        password: hashedPassword,
-        role: 'owner',
-        client: client._id
-      }],
+      [
+        {
+          name,
+          email,
+          password: hashedPassword,
+          role: 'owner',
+          client: client._id,
+        },
+      ],
       { session }
     );
 
@@ -62,9 +66,8 @@ const registerClient = async (req, res) => {
 
     res.status(201).json({
       message: 'Client registered',
-      clientId: client._id
+      clientId: client._id,
     });
-
   } catch (error) {
     await session.abortTransaction();
     session.endSession();
@@ -105,11 +108,10 @@ const registerUser = async (req, res) => {
       email,
       password: hashedPassword,
       role,
-      client: client._id
+      client: client._id,
     });
 
     res.status(201).json({ message: 'User created' });
-
   } catch (error) {
     console.error('REGISTER USER ERROR:', error);
     res.status(500).json({ message: 'User creation failed' });
@@ -120,7 +122,10 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email }).select('+password +isPlatformAdmin');
+    const user = await User.findOne({ email })
+      .select('+password +isPlatformAdmin +client')
+      .populate('client', 'slug');
+
     if (!user) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
@@ -134,22 +139,30 @@ const login = async (req, res) => {
       {
         id: user._id,
         role: user.role,
-        client: user.client,
-        isPlatformAdmin: user.isPlatformAdmin
+        client: user.client?._id || null,
+        isPlatformAdmin: user.isPlatformAdmin,
       },
       process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
 
-    res.json({ token });
+    res.json({
+      token,
+      user: {
+        id: user._id,
+        email: user.email,
+        role: user.role,
+        client: user.client
+          ? {
+              id: user.client._id,
+              slug: user.client.slug,
+            }
+          : null,
+      },
+    });
   } catch (error) {
     console.error('LOGIN ERROR:', error);
-    res.status(500).json({
-      message: 'Login failed',
-      ...(process.env.NODE_ENV === 'development' && {
-        error: error.message
-      })
-    });
+    res.status(500).json({ message: 'Login failed' });
   }
 };
 

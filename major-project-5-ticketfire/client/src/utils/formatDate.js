@@ -1,0 +1,11 @@
+// src/utils/formatDate.js
+
+const formatDate = (date) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    month: 'short',
+    day: '2-digit',
+    year: 'numeric',
+  });
+};
+
+export default formatDate;

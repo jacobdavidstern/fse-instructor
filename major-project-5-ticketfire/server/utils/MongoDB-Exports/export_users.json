@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "name": "Summit Owner",
+      "email": "summit@test.com",
+      "role": "owner",
+      "client": "699b4ee2ec1888706a4609fe",
+      "isPlatformAdmin": false
+    },
+    {
+      "name": "Trinity Owner",
+      "email": "trinity@test.com",
+      "role": "owner",
+      "client": "699b4ef1ec1888706a460a04",
+      "isPlatformAdmin": false
+    },
+    {
+      "email": "admin@test.com",
+      "role": "admin",
+      "client": null,
+      "createdAt": "2026-02-28T01:41:51.299Z",
+      "updatedAt": "2026-02-28T01:41:51.299Z",
+      "isPlatformAdmin": true
+    },
+    {
+      "email": "summitstaff@test.com",
+      "role": "staff",
+      "client": "699b4ee2ec1888706a4609fe",
+      "isPlatformAdmin": false,
+      "created_at": "2026-03-11T08:43:17.154Z",
+      "updated_at": "2026-03-11T08:43:17.154Z"
+    },
+    {
+      "email": "trinitystaff@test.com",
+      "role": "staff",
+      "client": "699b4ef1ec1888706a460a04",
+      "isPlatformAdmin": false,
+      "created_at": "2026-03-12T19:31:57.051Z",
+      "updated_at": "2026-03-12T19:31:57.051Z"
+    }
+  ]
+}
