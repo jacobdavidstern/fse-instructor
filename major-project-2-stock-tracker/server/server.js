@@ -12,6 +12,12 @@ const API_KEY = process.env.API_KEY;
 
 app.use(
   cors({
+    origin: 'https://fullstack-stocktracker.vercel.app',
+  })
+);
+
+app.use(
+  cors({
     origin: 'http://127.0.0.1:5500',
   })
 );
@@ -44,3 +50,9 @@ app.get('/api/test', (req, res) => {
     apiKeyLoaded: Boolean(process.env.API_KEY),
   });
 });
+
+app.use(
+  cors({
+    origin: 'https://fullstack-stocktracker.vercel.app',
+  })
+);
