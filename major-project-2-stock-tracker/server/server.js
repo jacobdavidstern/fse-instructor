@@ -37,3 +37,10 @@ app.get('/api/stock/search', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+app.get('/api/test', (req, res) => {
+  res.json({
+    status: 'ok',
+    apiKeyLoaded: Boolean(process.env.API_KEY),
+  });
+});
