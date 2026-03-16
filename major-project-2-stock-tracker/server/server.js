@@ -10,18 +10,20 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.API_KEY;
 
+// Cors first
 app.use(
   cors({
-    origin: 'https://fullstack-stocktracker.vercel.app',
+    origin: [
+      'https://fullstack-stocktracker.vercel.app',
+      'http://127.0.0.1:5500',
+    ],
   })
 );
 
-app.use(
-  cors({
-    origin: 'http://127.0.0.1:5500',
-  })
-);
+// Optional: JSON parsing
+app.use(express.json());
 
+// Routes
 app.get('/api/stock/quote', async (req, res) => {
   const symbol = req.query.symbol;
   const response = await fetch(
@@ -40,10 +42,7 @@ app.get('/api/stock/search', async (req, res) => {
   res.json(data);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
-
+// Test route
 app.get('/api/test', (req, res) => {
   res.json({
     status: 'ok',
@@ -51,8 +50,6 @@ app.get('/api/test', (req, res) => {
   });
 });
 
-app.use(
-  cors({
-    origin: 'https://fullstack-stocktracker.vercel.app',
-  })
-);
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
