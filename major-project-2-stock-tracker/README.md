@@ -13,12 +13,22 @@ Stock Tracker fetches real-time market data, supports search, portfolio tracking
 - **Error Handling** — Clear messages for invalid symbols, network issues, or API errors
 - **Responsive Design** — Works across desktop and mobile screen sizes
 
+## Live Demo
+
+**Deployed frontend:**
+[https://fullstack-stocktracker.vercel.app](https://fullstack-stocktracker.vercel.app)
+
+**Deployed Backend API (Render):**
+[https://fullstack-stocktracker-backend.onrender.com/api/test](https://fullstack-stocktracker-backend.onrender.com/api/test)
+
+> Note: The backend may take a few seconds to wake up on the free Render tier.
+
 ## Setup
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/jacobdavidstern/fse-instructor.git
-   cd projects/FS3-m046-Stock-Tracker
+   git clone https://github.com/jacobdavidstern/fullstack-portfolio.git
+   cd major-project-2-stock-tracker
    ```
 
 {Express backend to proxy apikey}

@@ -47,11 +47,8 @@ app.get('/api/stock/search', async (req, res) => {
 });
 
 // Test route
-app.get('/api/test', (req, res) => {
-  res.json({
-    status: 'ok',
-    apiKeyLoaded: Boolean(process.env.API_KEY),
-  });
+app.get('/', (req, res) => {
+  res.send('<h1>Backend is running</h1>');
 });
 
 app.listen(PORT, () => {

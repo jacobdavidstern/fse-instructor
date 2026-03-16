@@ -56,9 +56,16 @@ npm run dev
 
 Open the app in your browser at the URL shown in your terminal, usually http://localhost:5173.
 
-## Live Deployment
+## Live Demo
 
-Live URL: https://fsei-snake-react-nak7n948r-jacobdavidstern.vercel.app/
+**Deployed frontend:**
+[https://fullstack-snake-game.vercel.app](https://fullstack-snake-game.vercel.app)
+
+<!--
+**Deployed Backend API (Render):**
+[https://fullstack-stocktracker-backend.onrender.com/api/test](https://fullstack-stocktracker-backend.onrender.com/api/test)
+> Note: The backend may take a few seconds to wake up on the free Render tier.
+-->
 
 ## Project Structure
 
