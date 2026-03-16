@@ -10,13 +10,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.API_KEY;
 
+// Internal and External URLs
+const STOCK_API = 'https://api.twelvedata.com';
+const FRONTEND = 'https://fullstack-stocktracker.vercel.app';
+const LOCAL = 'http://127.0.0.1:5500';
+
 // Cors first
 app.use(
   cors({
-    origin: [
-      'https://fullstack-stocktracker.vercel.app',
-      'http://127.0.0.1:5500',
-    ],
+    origin: [FRONTEND, LOCAL],
   })
 );
 
@@ -24,19 +26,21 @@ app.use(
 app.use(express.json());
 
 // Routes
+// Quote by symbol
 app.get('/api/stock/quote', async (req, res) => {
   const symbol = req.query.symbol;
   const response = await fetch(
-    `https://api.twelvedata.com/quote?symbol=${symbol}&apikey=${API_KEY}`
+    `${STOCK_API}/quote?symbol=${symbol}&apikey=${API_KEY}`
   );
   const data = await response.json();
   res.json(data);
 });
 
+// Search by name
 app.get('/api/stock/search', async (req, res) => {
   const name = req.query.name;
   const response = await fetch(
-    `https://api.twelvedata.com/stocks?name=${name}&apikey=${API_KEY}`
+    `${STOCK_API}/stocks?name=${name}&apikey=${API_KEY}`
   );
   const data = await response.json();
   res.json(data);

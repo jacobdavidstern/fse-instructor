@@ -10,6 +10,8 @@ const addToWatchlistBtn = document.querySelector('#addToWatchlist');
 const refreshBtn = document.querySelector(
   '.card-header .btn.btn-outline-secondary'
 );
+// API Base URL
+const API_URL = 'https://fullstack-ticketfire-backend.onrender.com';
 
 // HUD elements
 let portfolioValue = 0; // updated dynamically
@@ -179,7 +181,7 @@ async function fetchQuote(input) {
     // 1. Try symbol first — now hitting your backend
     const response = await fetch(
       // `http://localhost:3000/api/stock/quote?symbol=${encodeURIComponent(input)}`
-      `https://fullstack-stocktracker-backend.onrender.com/api/stock/quote?symbol=${encodeURIComponent(input)}`
+      `${API_URL}/api/stock/quote?symbol=${encodeURIComponent(input)}`
     );
     const data = await response.json();
     if (data.error) throw new Error(data.error);
@@ -191,7 +193,7 @@ async function fetchQuote(input) {
       // 2. Fallback: search by name — also via backend
       const response = await fetch(
         // `/api/stock/search?name=${encodeURIComponent(input)}`
-        `https://fullstack-stocktracker-backend.onrender.com/api/stock/search?name=${encodeURIComponent(input)}`
+        `${API_URL}/api/stock/search?name=${encodeURIComponent(input)}`
       );
       const data = await response.json();
 
