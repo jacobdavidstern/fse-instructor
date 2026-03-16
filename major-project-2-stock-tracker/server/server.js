@@ -20,7 +20,7 @@ app.use(
   })
 );
 
-// Optional: JSON parsing
+// Optional: JSON parsing; GET requests don’t have bodies, needed for POST, PUT, PATCH
 app.use(express.json());
 
 // Routes
