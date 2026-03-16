@@ -1,34 +1,32 @@
-# fse-instructor
+# fullstack-portfolio
 
 ## Overview
 
-This repository contains projects built during the Codecademy Full-Stack Engineer Bootcamp (Instructor-Led) emphasizing hands-on development across web fundamentals, front-end and back-end technologies, and deployment best practices
+This repository contains the major projects I built during the Codecademy instructor-lde Full‑Stack Engineer Bootcamp. The program emphasized hands‑on development across web fundamentals, front‑end and back‑end engineering, and real‑world deployment workflows.
 
 ### Bootcamp details
 
 **Duration:** August 12, 2025 to February 27, 2026
-**Live Sessions:** Tuesdays & Fridays at 9pm EDT
 **Structure:** 27-week intensive, instructor-led, project-based
+**Live Sessions:** Tuesdays & Fridays at 9pm EDT
 
 ## Technologies
 
-- HTML5, CSS3, Responsive Design, Bootstrap
-- JavaScript (ES6+, DOM, Async, Fetch, API Integration)
-- React (Hooks, Routing, State Management, Authentication)
-- Node.js, Express, MongoDB, Mongoose
-- RESTful APIs, JWT, Helmet, CORS, Auth Flows
-- Git & GitHub, SDLC, Agile Practices
-- Deployment (Cloud Services, Environments)
-- Interview Prep, Capstone Presentation
+- Frontend: HTML5, CSS3, Responsive Design, Bootstrap, JavaScript (ES6+), React (Hooks, Routing, State, Auth)
+- Backend: Node.js, Express, MongoDB, Mongoose
+- APIs & Security: REST, JWT, Helmet, CORS, Auth flows
+- Tooling and Workflow: Git/GitHub, SDLC, Agile Practices
+- Deployment: Cloud services, environment management
+- Professional Skills: Interview Prep, capstone presentation
 
 ## Projects
 
+Challenge Project - Music Player
 Major Project 1 - GitHub Profile
 Major Project 2 - Stock Tracker
 Major Project 3 - Snake Game
 Major Project 4 - Task Management API
 Major Project 5 - Ticketfire
-Challenge Project - Music Player
 
 ## Development Environment
 
