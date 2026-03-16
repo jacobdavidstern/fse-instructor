@@ -178,7 +178,8 @@ async function fetchQuote(input) {
   try {
     // 1. Try symbol first — now hitting your backend
     const response = await fetch(
-      `http://localhost:3000/api/stock/quote?symbol=${encodeURIComponent(input)}`
+      // `http://localhost:3000/api/stock/quote?symbol=${encodeURIComponent(input)}`
+      `https://fullstack-stocktracker-backend.onrender.com/api/stock/quote?symbol=${encodeURIComponent(input)}`
     );
     const data = await response.json();
     if (data.error) throw new Error(data.error);
@@ -189,7 +190,8 @@ async function fetchQuote(input) {
     try {
       // 2. Fallback: search by name — also via backend
       const response = await fetch(
-        `/api/stock/search?name=${encodeURIComponent(input)}`
+        // `/api/stock/search?name=${encodeURIComponent(input)}`
+        `https://fullstack-stocktracker-backend.onrender.com/api/stock/search?name=${encodeURIComponent(input)}`
       );
       const data = await response.json();
 
