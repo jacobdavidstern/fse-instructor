@@ -98,8 +98,8 @@ Warning! Overwrite all files in repo with current Prettier config
 ### 06. Config Drift - Notes
 
 - ESLint + Prettier quote/comma rules harmonized across:
-  - fse-instructor repo - Common JS (CJS)
-  - fse-learning repo - ES Module (ESM)
+  - fullstack-portfolio repo - Common JS (CJS)
+  - fullstack-selfpaced repo - ES Module (ESM)
 - `.eslintrc.cjs` and `.prettierrc.cjs` updated for consistency
 
 ### 07. Debugging Node.js in VS Code

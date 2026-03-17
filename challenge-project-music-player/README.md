@@ -1,4 +1,4 @@
-# README: FS3 Challenge-1, Vibe Player
+# README: Challenge Project Music Player, Vibe Player
 
 Single‑page React music player using the Jamendo API
 
@@ -11,15 +11,15 @@ Single‑page React music player using the Jamendo API
 
 ## Demo
 
-[Live on Railway](https://fse-instructor-production.up.railway.app/)
+[Live on Railway](https://fullstack-portfolio-production.up.railway.app/)
 
 ## Setup
 
 1. Clone the repo
 
 ```sh
-git clone https://github.com/jacobdavidstern/fse-instructor.git
-cd projects/FS3-Challenge-1
+git clone https://github.com/jacobdavidstern/fullstack-portfolio.git
+cd challenge-project-music-player
 ```
 
 2. Install dependencies

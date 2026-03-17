@@ -1,4 +1,4 @@
-<-- README.md -->
+<!-- README.md -->
 
 # Task Management API
 
@@ -9,7 +9,7 @@ A secure REST API for managing personal tasks with user authentication, role‑b
 This project is a backend‑only API built with Node.js, Express, JWT authentication, and MongoDB/Mongoose.
 Users can register, log in, and manage their own tasks. Admin users have elevated permissions to view all tasks across the system.
 
-This was built as Major Project 4 in my full‑stack program.
+This was built as Major Project 4 in my full‑stack bootcamp.
 
 ### Tech Stack
 
@@ -114,7 +114,7 @@ project/
 1. Clone the repo
 
 ```sh
-git clone https://github.com/jacobdavidstern/fse-instructor.git
+git clone https://github.com/jacobdavidstern/fullstack-portfolio.git
 cd major-project-4-task-management-api
 ```
 

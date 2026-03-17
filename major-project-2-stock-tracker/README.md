@@ -21,7 +21,7 @@ Stock Tracker fetches real-time market data, supports search, portfolio tracking
 **Deployed Backend API (Render):**
 [https://fullstack-stocktracker-backend.onrender.com/api/test](https://fullstack-stocktracker-backend.onrender.com/api/test)
 
-> Note: The backend may take a few seconds to wake up on the free Render tier.
+> Note: The backend may take a minute to wake up on the free Render tier.
 
 ## Setup
 

@@ -1,12 +1,12 @@
 {
-  "name": "fse-instructor",
+  "name": "fullstack-portfolio",
   "description": "Instructor-led showcase from Codecademy's Full Stack Engineer program.",
   "author": "Jacob Stern",
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "type": "commonjs",
-  "homepage": "https://github.com/jacobdavidstern/fse-instructor",
+  "homepage": "https://github.com/jacobdavidstern/fullstack-portfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

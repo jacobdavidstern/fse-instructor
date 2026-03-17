@@ -109,7 +109,7 @@ TicketFire supports the core workflows required for managing multi‑tenant even
 1. Clone the repository and navigate to the project directory
 
 ```sh
-git clone https://github.com/jacobdavidstern/fse-instructor.git
+git clone https://github.com/jacobdavidstern/fullstack-portfolio.git
 cd major-project-5-ticketfire
 ```
 

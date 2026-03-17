@@ -38,8 +38,8 @@ If the API request fails, a console error is generated and a fallback message sh
 Clone the repository
 
 ```sh
-git clone https://github.com/jacobdavidstern/fse-instructor.git
-cd fse-instructor/projects/FS3-m070-Snake-React
+git clone https://github.com/jacobdavidstern/fullstack-portfolio.git
+cd major-project-3-snake-game
 ```
 
 Install dependencies
@@ -64,7 +64,7 @@ Open the app in your browser at the URL shown in your terminal, usually http://l
 <!--
 **Deployed Backend API (Render):**
 [https://fullstack-stocktracker-backend.onrender.com/api/test](https://fullstack-stocktracker-backend.onrender.com/api/test)
-> Note: The backend may take a few seconds to wake up on the free Render tier.
+> Note: The backend may take a minute to wake up on the free Render tier.
 -->
 
 ## Project Structure

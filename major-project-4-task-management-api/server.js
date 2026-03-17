@@ -6,11 +6,11 @@ const cors = require('cors');
 const express = require('express');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
-const connectDB = require('../db/connectDB');
+const connectDB = require('./db/connectDB');
 
-const adminRoutes = require('../routes/adminRoutes');
-const authRoutes = require('../routes/authRoutes');
-const taskRoutes = require('../routes/taskRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const authRoutes = require('./routes/authRoutes');
+const taskRoutes = require('./routes/taskRoutes');
 
 const app = express();
 const PORT = process.env.PORT;

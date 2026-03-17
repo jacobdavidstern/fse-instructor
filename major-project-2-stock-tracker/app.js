@@ -11,7 +11,7 @@ const refreshBtn = document.querySelector(
   '.card-header .btn.btn-outline-secondary'
 );
 // API Base URL
-const API_URL = 'https://fullstack-ticketfire-backend.onrender.com';
+const API_URL = 'https://fullstack-stocktracker-backend.onrender.com';
 
 // HUD elements
 let portfolioValue = 0; // updated dynamically
