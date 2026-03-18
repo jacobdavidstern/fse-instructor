@@ -18,6 +18,11 @@ app.get('/api/album', async (req, res) => {
       return res.status(400).json({ error: 'Missing album_id' });
     }
 
+    // Show root route
+    app.get('/', (req, res) => {
+      res.send('Music Player backend is running');
+    });
+
     const albumUrl =
       `${JAMENDO_API}/albums/?format=json&` +
       `client_id=${process.env.JAMENDO_CLIENT_ID}&id=${albumId}`;
@@ -26,7 +31,7 @@ app.get('/api/album', async (req, res) => {
     const tracksUrl =
       `${JAMENDO_API}/tracks/?format=json&` +
       `client_id=${process.env.JAMENDO_CLIENT_ID}&album_id=${albumId}&order=id_desc`;
-    // id or id_desc, playlist sort order
+    // id_asc or id_desc, playlist sort order
 
     const [albumRes, tracksRes] = await Promise.all([
       fetch(albumUrl),

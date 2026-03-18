@@ -11,7 +11,13 @@ Single‑page React music player using the Jamendo API
 
 ## Demo
 
-[Live on Railway](https://fullstack-portfolio-production.up.railway.app/)
+**Deployed frontend:**
+[https://fullstack-music-player-seven.vercel.app/](https://fullstack-music-player-seven.vercel.app/)
+
+**Deployed Backend API (Render):**
+[https://fullstack-music-player-backend-miye.onrender.com/](https://fullstack-music-player-backend-miye.onrender.com/)
+
+> Note: The backend may take a minute to wake up on the free Render tier.
 
 ## Setup
 
