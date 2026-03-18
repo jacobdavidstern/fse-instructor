@@ -96,6 +96,7 @@ const styles = {
   },
 
   signOut: {
+    fontSize: '1rem',
     marginTop: 'auto',
     background: 'transparent',
     border: 'none',

@@ -1,4 +1,5 @@
 // components/MusicDisplay.jsx
+
 import React from 'react';
 
 // Helper to format seconds as M:SS

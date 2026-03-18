@@ -83,6 +83,7 @@ export const ui = {
     gap: '8px',
   },
   navLink: {
+    fontSize: '1rem',
     color: '#4a5568',
     textDecoration: 'none',
     padding: '8px 12px',

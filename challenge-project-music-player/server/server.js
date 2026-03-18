@@ -1,12 +1,16 @@
 // server.js
-require('dotenv').config();
-require('dotenv').config({ path: '.env.local', override: true });
+
+const path = require('path');
+require('dotenv').config({
+  path: path.join(__dirname, '.env.local'),
+  override: true,
+});
 
 const express = require('express');
-const path = require('path');
 const app = express();
+const JAMENDO_API = 'https://api.jamendo.com/v3.0';
 
-// API ROUTE must be FIRST
+// API ROUTE must be first
 app.get('/api/album', async (req, res) => {
   try {
     const albumId = req.query.album_id;
@@ -15,18 +19,14 @@ app.get('/api/album', async (req, res) => {
     }
 
     const albumUrl =
-      'https://api.jamendo.com/v3.0/albums/?format=json' +
-      '&client_id=' +
-      process.env.JAMENDO_CLIENT_ID +
-      '&id=' +
-      albumId;
+      `${JAMENDO_API}/albums/?format=json&` +
+      `client_id=${process.env.JAMENDO_CLIENT_ID}&id=${albumId}`;
+    // id == album art, may be inconsistent
+
     const tracksUrl =
-      'https://api.jamendo.com/v3.0/tracks/?format=json' +
-      '&client_id=' +
-      process.env.JAMENDO_CLIENT_ID +
-      '&album_id=' +
-      albumId +
-      '&order=id_desc'; // id or id_desc
+      `${JAMENDO_API}/tracks/?format=json&` +
+      `client_id=${process.env.JAMENDO_CLIENT_ID}&album_id=${albumId}&order=id_desc`;
+    // id or id_desc, playlist sort order
 
     const [albumRes, tracksRes] = await Promise.all([
       fetch(albumUrl),
@@ -40,6 +40,7 @@ app.get('/api/album', async (req, res) => {
     const albumData = await albumRes.json();
     const tracksData = await tracksRes.json();
 
+    // DEBUG
     // console.log('Jamendo raw ', { albumData, tracksData });
 
     const album = albumData.results?.[0] || {};

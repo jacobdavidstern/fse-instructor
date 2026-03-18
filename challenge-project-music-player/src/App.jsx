@@ -1,4 +1,5 @@
 // src/App.jsx
+
 import React from 'react';
 import VibePlayer from './components/VibePlayer.jsx';
 

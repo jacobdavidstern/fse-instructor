@@ -143,6 +143,7 @@ const styles = {
     color: '#2d3748',
   },
   signOut: {
+    fontSize: '1rem',
     marginTop: 'auto',
     background: 'transparent',
     border: 'none',

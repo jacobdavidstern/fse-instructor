@@ -1,4 +1,5 @@
 // components/VibePlayer.jsx
+
 import React from 'react';
 import MusicControl from './MusicControl.jsx';
 

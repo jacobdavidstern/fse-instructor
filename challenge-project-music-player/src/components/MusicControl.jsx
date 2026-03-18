@@ -1,4 +1,5 @@
 // components/MusicControl.jsx
+
 import React, { useEffect, useState, useRef } from 'react';
 import MusicDisplay from './MusicDisplay.jsx';
 
