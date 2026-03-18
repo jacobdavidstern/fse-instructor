@@ -64,13 +64,13 @@ app.get('/api/album', async (req, res) => {
   }
 });
 
-// Serve static files from dist
-app.use(express.static(path.join(__dirname, 'dist')));
+// // Serve static files from dist
+// app.use(express.static(path.join(__dirname, 'dist')));
 
-// SPA fallback — MUST be app.use() and LAST
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+// // SPA fallback — MUST be app.use() and LAST
+// app.use((req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
