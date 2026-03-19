@@ -17,9 +17,11 @@ const MusicControl = () => {
   // Fetch tracks from Express proxy
   useEffect(() => {
     let cancelled = false;
-    const proxyUrl = `/api/album?album_id=${albumId}`;
 
-    fetch(proxyUrl)
+    const proxyUrl = `/api/album?album_id=${albumId}`;
+    const fullUrl = `${import.meta.env.VITE_BACKEND_URL}${proxyUrl}`;
+
+    fetch(fullUrl)
       .then((res) => {
         if (!res.ok) throw new Error(`Proxy request failed: ${res.status}`);
         return res.json();

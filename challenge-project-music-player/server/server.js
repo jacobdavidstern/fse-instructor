@@ -1,14 +1,33 @@
-// server.js
+// server/server.js
 
+// Core requires
 const path = require('path');
+const express = require('express');
+const cors = require('cors'); // Render/Vercel crossorigin
 require('dotenv').config({
   path: path.join(__dirname, '.env.local'),
   override: true,
 });
 
-const express = require('express');
+// App initialization
 const app = express();
+
+// Constants / config
 const JAMENDO_API = 'https://api.jamendo.com/v3.0';
+
+// Middleware
+app.use(
+  cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
+
+// Root route (simple health check)
+app.get('/', (req, res) => {
+  res.send('Music Player backend is running');
+});
 
 // API ROUTE must be first
 app.get('/api/album', async (req, res) => {
@@ -17,11 +36,6 @@ app.get('/api/album', async (req, res) => {
     if (!albumId) {
       return res.status(400).json({ error: 'Missing album_id' });
     }
-
-    // Show root route
-    app.get('/', (req, res) => {
-      res.send('Music Player backend is running');
-    });
 
     const albumUrl =
       `${JAMENDO_API}/albums/?format=json&` +
@@ -69,13 +83,7 @@ app.get('/api/album', async (req, res) => {
   }
 });
 
-// // Serve static files from dist
-// app.use(express.static(path.join(__dirname, 'dist')));
-
-// // SPA fallback — MUST be app.use() and LAST
-// app.use((req, res) => {
-//   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-// });
+// Removed static serving for Render
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
