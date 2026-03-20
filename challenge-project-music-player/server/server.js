@@ -18,7 +18,10 @@ const JAMENDO_API = 'https://api.jamendo.com/v3.0';
 // Middleware
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: [
+      'http://localhost:5173',
+      'https://fullstack-music-player-seven.vercel.app',
+    ],
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
