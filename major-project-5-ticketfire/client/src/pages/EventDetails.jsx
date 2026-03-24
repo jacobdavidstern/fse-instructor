@@ -1,51 +1,16 @@
 // client/src/pages/EventDetails.jsx
 
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/useAuth';
-import { apiFetch } from '../api/api';
 import { ui } from '../styles/ui';
 
-const EventDetails = () => {
+const EventDetails = ({ event }) => {
   const { client } = useAuth();
-  const { eventNumber } = useParams();
-  const navigate = useNavigate();
-
-  const [event, setEvent] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (!client?.slug || !eventNumber) return;
-
-    const loadEvent = async () => {
-      try {
-        const data = await apiFetch(
-          `/api/${client.slug}/events/${eventNumber}`
-        );
-        setEvent(data);
-      } catch (err) {
-        console.error('Failed to load event:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadEvent();
-  }, [client?.slug, eventNumber]);
-
-  if (loading) {
-    return <div style={styles.loading}>Loading event…</div>;
-  }
-
-  if (!event) {
-    return <div style={styles.error}>Event not found.</div>;
-  }
 
   return (
     <div style={ui.page}>
       <h1 style={ui.title}>{event.event_name}</h1>
       <p style={ui.subtitle}>
-        Event #{event.event_number} — {client?.name}
+        Event #{event.event_number ?? event.eventNumber} — {client?.name}
       </p>
 
       <div style={ui.card}>
@@ -78,15 +43,6 @@ const EventDetails = () => {
         <div style={styles.row}>
           <strong>Published:</strong> {event.published ? 'Yes' : 'No'}
         </div>
-
-        <button
-          style={styles.editButton}
-          onClick={() =>
-            navigate(`/${client.slug}/events/${event.event_number}/edit`)
-          }
-        >
-          Edit Event
-        </button>
       </div>
     </div>
   );
@@ -99,17 +55,6 @@ const styles = {
     marginBottom: '12px',
     fontSize: '16px',
     color: 'black',
-  },
-  editButton: {
-    marginTop: '20px',
-    background: '#3a5a78',
-    color: 'white',
-    padding: '12px',
-    border: 'none',
-    borderRadius: '6px',
-    cursor: 'pointer',
-    fontWeight: 600,
-    width: '100%',
   },
   loading: {
     padding: '20px',

@@ -1,22 +1,35 @@
 // client/src/layouts/ClientLayout.jsx
 
-import React, { useEffect } from 'react';
+import { DEMO_MODE } from '../demo';
+import { useEffect } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/useAuth';
 import { apiFetch } from '../api/api';
 import { ui } from '../styles/ui';
+import { useParams } from 'react-router-dom';
 
 const ClientLayout = () => {
-  const { user, client, logout } = useAuth();
+  const { user, client, setClient, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const { slug } = useParams(); // Extract slug from route params
 
-  // Extract slug from URL
-  const slugFromUrl = location.pathname.split('/')[1];
+  // Client Preload
+  useEffect(() => {
+    const loadClient = async () => {
+      try {
+        const data = await apiFetch(`/${slug}`);
+        setClient(data);
+      } catch (err) {
+        console.error('Failed to load client:', err);
+      }
+    };
+
+    loadClient();
+  }, [slug, setClient]);
 
   // Determine which sidebar item should be highlighted
-  const [, , section] = location.pathname.split('/');
-
+  const section = location.pathname.split('/')[2];
   const activeSection = section === 'events' ? 'events' : 'dashboard';
 
   // Use the user's name as a fallback so it's snappy on first render
@@ -26,19 +39,22 @@ const ClientLayout = () => {
   useEffect(() => {
     if (!client) return; // still loading auth
 
-    // If the slug in the URL doesn't match the authenticated client's slug,
-    // redirect to the correct dashboard.
-    if (slugFromUrl && slugFromUrl !== client.slug) {
+    if (slug !== client.slug) {
       navigate(`/${client.slug}`, { replace: true });
     }
-  }, [client, slugFromUrl, navigate]);
+  }, [client, slug, navigate]);
 
-  // Create event when clicking "New Event"
+  // New Event only in real mode
   const handleNewEvent = async () => {
+    if (DEMO_MODE) {
+      alert('Demo Mode: Creating new events is disabled.');
+      return;
+    }
+
     try {
-      const data = await apiFetch(`/api/${client.slug}/events`, {
+      const data = await apiFetch(`/${client.slug}/events`, {
         method: 'POST',
-        body: JSON.stringify({}), // empty payload → backend defaults kick in
+        body: JSON.stringify({}),
       });
 
       const eventNumber = data.eventNumbers?.[0];
@@ -50,6 +66,9 @@ const ClientLayout = () => {
       console.error('Failed to create event:', err);
     }
   };
+
+  // Prevent rendering until client is loaded
+  if (!client) return <div>Loading...</div>;
 
   return (
     <div style={ui.container}>

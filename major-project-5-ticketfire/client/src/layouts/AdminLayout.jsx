@@ -1,5 +1,6 @@
 // client/src/layouts/AdminLayout.jsx
 
+import { DEMO_MODE } from '../demo';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/useAuth';
 import { ui } from '../styles/ui';
@@ -19,7 +20,7 @@ const AdminLayout = () => {
 
   return (
     <div style={ui.container}>
-      {/* SIDEBAR */}
+      {/* Sidebar */}
       <aside style={styles.sidebar}>
         <div style={ui.navGroup}>
           <div style={styles.userName}>System Admin</div>
@@ -45,7 +46,7 @@ const AdminLayout = () => {
         </button>
       </aside>
 
-      {/* MAIN */}
+      {/* Main */}
       <div style={ui.main}>
         <header style={styles.header}>
           <h3>Platform Control</h3>

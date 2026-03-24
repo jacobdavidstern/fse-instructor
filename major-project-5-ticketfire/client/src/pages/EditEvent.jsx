@@ -1,5 +1,6 @@
 // client/src/pages/EditEvent.jsx
 
+import { DEMO_MODE } from '../demo';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/useAuth';
@@ -35,15 +36,13 @@ const EditEvent = () => {
     const load = async () => {
       try {
         // Fetch event
-        const event = await apiFetch(
-          `/api/${client.slug}/events/${eventNumber}`
-        );
+        const event = await apiFetch(`/${client.slug}/events/${eventNumber}`);
 
         // Fetch dropdowns
         const [sData, dData, vData] = await Promise.all([
-          apiFetch(`/api/${client.slug}/schools`),
-          apiFetch(`/api/${client.slug}/departments`),
-          apiFetch(`/api/${client.slug}/venues`),
+          apiFetch(`/${client.slug}/schools`),
+          apiFetch(`/${client.slug}/departments`),
+          apiFetch(`/${client.slug}/venues`),
         ]);
 
         setSchools(sData);
@@ -99,7 +98,7 @@ const EditEvent = () => {
     }
 
     try {
-      await apiFetch(`/api/${client.slug}/events/${eventNumber}`, {
+      await apiFetch(`/${client.slug}/events/${eventNumber}`, {
         method: 'PATCH',
         body: JSON.stringify({
           event_name: form.name,

@@ -13,6 +13,7 @@ import ClientDashboard from './pages/ClientDashboard';
 import ClientEvents from './pages/ClientEvents';
 import EventDetails from './pages/EventDetails';
 import EditEvent from './pages/EditEvent';
+import EventDetailsWrapper from './pages/EventDetailsWrapper';
 
 const App = () => {
   return (
@@ -34,7 +35,10 @@ const App = () => {
             <Route element={<ClientLayout />}>
               <Route index element={<ClientDashboard />} />
               <Route path="events" element={<ClientEvents />} />
-              <Route path="events/:eventNumber" element={<EventDetails />} />
+              <Route
+                path="events/:eventNumber"
+                element={<EventDetailsWrapper />}
+              />
               <Route path="events/:eventNumber/edit" element={<EditEvent />} />
             </Route>
           </Route>

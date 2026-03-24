@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [client, setClient] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // 1. INITIAL LOAD (refresh)
+  // Initial Load (refresh)
   useEffect(() => {
     const init = async () => {
       const stored = localStorage.getItem('user');
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
         const parsedUser = JSON.parse(stored);
         setUser(parsedUser);
 
-        // ADMIN GUARD — admins have no client
+        // Admin Guard - admins have no client
         if (parsedUser.role === 'admin') {
           setClient(null);
           setLoading(false);
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
         }
 
         // Fetch fresh client data
-        const freshClient = await apiFetch(`/api/${parsedUser.client.slug}`);
+        const freshClient = await apiFetch(`/${parsedUser.client.slug}`);
         setClient(freshClient);
       } catch (err) {
         console.error('Auth init error:', err);
@@ -46,22 +46,22 @@ export const AuthProvider = ({ children }) => {
     init();
   }, []);
 
-  // 2. LOGIN FLOW (preload client)
+  // Login Flow (preload client)
   const login = async (data) => {
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data.user));
 
     setUser(data.user);
 
-    // ADMIN GUARD — admins have no client
+    // Admin Guard - admins have no client
     if (data.user.role === 'admin') {
       setClient(null);
       setLoading(false);
       return;
     }
 
-    // Fetch client BEFORE navigation
-    const freshClient = await apiFetch(`/api/${data.user.client.slug}`);
+    // Fetch client *before* navigation
+    const freshClient = await apiFetch(`/${data.user.client.slug}`);
     setClient(freshClient);
 
     setLoading(false);

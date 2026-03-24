@@ -1,0 +1,36 @@
+{
+  "venues": [
+    {
+      "name": "Washington Gymnasium",
+      "slug": "washington_gym"
+    },
+    {
+      "name": "Washington Auditorium",
+      "slug": "washington_auditorium"
+    },
+    {
+      "name": "Loyola Performing Arts Center",
+      "slug": "loyola_pac"
+    },
+    {
+      "name": "Washington Natatorium",
+      "slug": "washington_pool"
+    },
+    {
+      "name": "Washington Performing Arts Center",
+      "slug": "washington_pac"
+    },
+    {
+      "name": "Loyola Natatorium",
+      "slug": "loyola_pool"
+    },
+    {
+      "name": "Loyola Auditorium",
+      "slug": "loyola_auditorium"
+    },
+    {
+      "name": "Loyola Gymnasium",
+      "slug": "loyola_gym"
+    }
+  ]
+}

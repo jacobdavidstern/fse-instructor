@@ -1,22 +1,34 @@
 // client/src/pages/Login.jsx
 
-import { useState } from 'react';
+import { DEMO_MODE } from '../demo';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../auth/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { apiFetch } from '../api/api';
 import { ui } from '../styles/ui';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const { login } = useAuth();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // Demo Mode redirect
+  useEffect(() => {
+    if (DEMO_MODE) {
+      navigate('/summit');
+    }
+  }, [navigate]);
+
+  if (DEMO_MODE) {
+    return null;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const data = await apiFetch('/api/auth/login', {
+      const data = await apiFetch('/auth/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
       });

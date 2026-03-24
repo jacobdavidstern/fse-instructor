@@ -1,0 +1,23 @@
+{
+  "event_name": "Girls Basketball: Loyola Leopards vs Washington Huskies",
+  "school": {
+    "name": "Loyola High School",
+    "slug": "loyola",
+    "id": "699b5254ec1888706a460a1c"
+  },
+  "department": {
+    "name": "Athletics",
+    "slug": "athletics"
+  },
+  "venue": {
+    "name": "Loyola Gymnasium",
+    "slug": "loyola_gym"
+  },
+  "start_at": "2026-03-09T18:30",
+  "end_at": "2026-03-09T20:00",
+  "doors_open_before": 30,
+  "total_tickets": 24,
+  "tickets_sold": 20,
+  "published": true,
+  "eventNumber": 4
+}

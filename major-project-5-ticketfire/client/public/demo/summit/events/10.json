@@ -1,0 +1,23 @@
+{
+  "event_name": "Music: Loyola Synth-Pop & Percussion Night",
+  "school": {
+    "name": "Loyola High School",
+    "slug": "loyola",
+    "id": "699b5254ec1888706a460a1c"
+  },
+  "department": {
+    "name": "Music",
+    "slug": "music"
+  },
+  "venue": {
+    "name": "Loyola Performing Arts Center",
+    "slug": "loyola_pac"
+  },
+  "start_at": "2026-03-23T18:30",
+  "end_at": "2026-03-23T20:00",
+  "doors_open_before": 30,
+  "total_tickets": 24,
+  "tickets_sold": 20,
+  "published": true,
+  "eventNumber": 10
+}

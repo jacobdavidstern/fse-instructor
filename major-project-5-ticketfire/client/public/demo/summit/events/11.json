@@ -1,0 +1,23 @@
+{
+  "event_name": "Dance: Urban Pulse: Street Styles",
+  "school": {
+    "name": "Washington High School",
+    "slug": "washington",
+    "id": "699b5254ec1888706a460a1b"
+  },
+  "department": {
+    "name": "Activities",
+    "slug": "activities"
+  },
+  "venue": {
+    "name": "Washington Auditorium",
+    "slug": "washington_auditorium"
+  },
+  "start_at": "2026-03-30T18:30",
+  "end_at": "2026-03-30T20:00",
+  "doors_open_before": 30,
+  "total_tickets": 24,
+  "tickets_sold": 20,
+  "published": true,
+  "eventNumber": 11
+}

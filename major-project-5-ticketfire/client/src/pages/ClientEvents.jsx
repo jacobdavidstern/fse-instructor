@@ -1,5 +1,6 @@
 // client/src/pages/ClientEvents.jsx
 
+import { DEMO_MODE } from '../demo';
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { apiFetch } from '../api/api';
@@ -17,7 +18,7 @@ const ClientEvents = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const data = await apiFetch(`/api/${slug}/events`);
+        const data = await apiFetch(`/${slug}/events`);
         setEvents(data.events);
       } catch (err) {
         console.error(err);
@@ -77,9 +78,18 @@ const ClientEvents = () => {
 
               <div>{formatDate(event.start_at)}</div>
 
-              {/* --- DYNAMIC ACTION COLUMN --- */}
+              {/* Dynamic Action Column */}
               <div style={ui.center}>
-                {canEdit ? (
+                {/* DEMO MODE: always show view-only eyeball */}
+                {DEMO_MODE ? (
+                  <Link
+                    to={`/${slug}/events/${event.eventNumber}`}
+                    style={ui.actionLink}
+                    title="View Event (Demo Mode)"
+                  >
+                    <i className="fa-solid fa-eye"></i>
+                  </Link>
+                ) : canEdit ? (
                   // Admin / Owner / Official > Edit link
                   <Link
                     to={`/${slug}/events/${event.eventNumber}/edit`}

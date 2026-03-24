@@ -41,10 +41,11 @@ TicketFire supports the core workflows required for managing multi‑tenant even
 - Events can be published or unpublished
 - Ticket counts and capacity are validated
 - Doors‑open time is validated in 5‑minute increments
+- Event start times are validated to precede event end times
 
 ### User Management
 
-- Duplicate emails are prevented
+- Duplicate user email addresses are prevented
 - Users belong to a client and inherit client‑scoped permissions
 
 ## Tech Stack
@@ -58,30 +59,35 @@ TicketFire supports the core workflows required for managing multi‑tenant even
 ## Architecture Overview
 
 ```text
-        ┌──────────────────────────┐
-        │        Frontend          │
-        │   React + Vite SPA       │
-        │                          │
-        │  Auth flows (JWT)        │
-        │  Role‑aware navigation   │
-        │  Event CRUD UI           │
-        └─────────────┬────────────┘
-                      │ HTTP (REST)
-                      ▼
+        ┌───────────────────────────────────────────────────────┐
+        │                       Frontend                        │
+        │                   React + Vite SPA                    │
+        │                                                       │
+        │  ┌───────────────────────┬──────────────────────────┐ │
+        │  │   Real Mode           │  Demo Mode frontend-only │ │
+        │  │   HTTP REST API       │  Static JSON Mock API    │ │
+        │  │   Express backend     │  client/public/demo/...  │ │
+        │  └───────────────────────┴──────────────────────────┘ │
+        │                                                       │
+        │  Shared UI Layer:                                     │
+        │    • Role‑aware navigation                            │
+        │    • Event CRUD UI                                    │
+        │    • Auth flows (JWT)                                 │
+        │    • Routing + components                             │
+        └──────────────┬────────────────────────────────────────┘
+                       │ HTTP (REST)
+                       ▼
         ┌──────────────────────────┐
         │         Backend          │
         │       Express API        │
-        │                          │
         │  Security middleware     │
         │  Auth + RBAC guards      │
         │  Tenant‑scoped routing   │
-        │  Controllers / services  │
         └─────────────┬────────────┘
                       │ Mongoose
                       ▼
         ┌──────────────────────────┐
         │        MongoDB Atlas     │
-        │                          │
         │  Clients                 │
         │  Users (scoped)          │
         │  Events (per‑client)     │
@@ -94,13 +100,82 @@ TicketFire supports the core workflows required for managing multi‑tenant even
 - Database: MongoDB Atlas with tenant‑scoped collections and indexes
 - Auth: JWT-based login with rate limiting and protected routes
 - Multi‑tenant design with per‑client event numbering and scoped access
-- Deployment: Frontend on Vercel, backend TBD
+- Deployment: Demo Mode frontend on Vercel
+
+## Demo Mode (Frontend‑Only Mock API Layer)
+
+TicketFire includes a fully isolated Demo Mode that allows the entire frontend to run without a backend. This mode is designed for portfolio demos, UI development, and environments where the real API is unavailable.
+
+Demo Mode replaces all network requests with static JSON files stored under:
+
+`client/public/demo/`
+
+This provides a predictable, backend‑free environment that mirrors the real API shape.
+
+### How Demo Mode Works
+
+The frontend supports a `?demo=` URL flag that switches the data source to a local JSON mock API containing:
+
+- 1 client
+- 2 schools
+- 4 departments
+- 8 venues
+- 12 events
+
+When enabled, all GET requests made through the shared apiFetch utility are transparently rewritten to load JSON files from `client/public/demo/summit/`
+
+The UI, routing, RBAC logic, and component tree remain unchanged — only the data source is swapped.
+
+Demo Mode mirrors the real API structure, including:
+
+- client details
+- event lists
+- event details crucial to event managers: start time, end time, sales, published
+- schools, departments, and venues
+
+This keeps the UI behavior identical to real mode while avoiding the need for a running backend.
+
+### Enabling / Disabling Demo Mode
+
+Demo Mode can be controlled via URL flags:
+
+```sh
+?demo=true —  Demo Mode on
+?demo=false — Demo Mode off
+```
+
+No flag — defaults to:
+
+- development: real backend
+- production: demo mode
+
+Examples:
+
+```sh
+http://localhost:5173/?demo=true
+https://ticketfire-demo.vercel.app/?demo=false
+```
+
+### Why Demo Mode Exists
+
+Demo Mode provides several benefits:
+
+- Backend‑free demos: The frontend can be deployed anywhere without requiring a server.
+- Stable data: UI flows can be demonstrated without worrying about database state.
+- Faster UI development: Components can be built and tested without waiting for backend endpoints.
+
+## Live Demo
+
+**Deployed Demo Mode frontend:**
+[https://fullstack-ticketfire.vercel.app/](https://fullstack-ticketfire.vercel.app/)
 
 ## Future Enhancements
 
 - Customer authentication and ticket access, allowing ticket buyers to securely view their purchased tickets online.
 - Payment processing integration to support online ticket purchases.
 - Expanded reporting and analytics for event organizers.
+- Advanced ticket formats including passes, season passes, and season tickets.
+- Ticket redemption.
 
 ## Getting Started
 

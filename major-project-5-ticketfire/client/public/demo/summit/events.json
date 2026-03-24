@@ -1,0 +1,280 @@
+{
+  "events": [
+    {
+      "event_name": "Boys Basketball: Washington Huskies vs Loyola Leopards",
+      "school": {
+        "name": "Washington High School",
+        "slug": "washington",
+        "id": "699b5254ec1888706a460a1b"
+      },
+      "department": {
+        "name": "Athletics",
+        "slug": "athletics"
+      },
+      "venue": {
+        "name": "Washington Gymnasium",
+        "slug": "washington_gym"
+      },
+      "start_at": "2026-03-05T18:30",
+      "end_at": "2026-03-05T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 1
+    },
+    {
+      "event_name": "Boys Basketball: Loyola Leopards vs Washington Huskies",
+      "school": {
+        "name": "Loyola High School",
+        "slug": "loyola",
+        "id": "699b5254ec1888706a460a1c"
+      },
+      "department": {
+        "name": "Athletics",
+        "slug": "athletics"
+      },
+      "venue": {
+        "name": "Loyola Gymnasium",
+        "slug": "loyola_gym"
+      },
+      "start_at": "2026-03-05T18:30",
+      "end_at": "2026-03-05T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 2
+    },
+    {
+      "event_name": "Girls Basketball: Washington Huskies vs Loyola Leopards",
+      "school": {
+        "name": "Washington High School",
+        "slug": "washington",
+        "id": "699b5254ec1888706a460a1b"
+      },
+      "department": {
+        "name": "Athletics",
+        "slug": "athletics"
+      },
+      "venue": {
+        "name": "Washington Gymnasium",
+        "slug": "washington_gym"
+      },
+      "start_at": "2026-03-08T18:30Z",
+      "end_at": "2026-03-08T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 3
+    },
+    {
+      "event_name": "Girls Basketball: Loyola Leopards vs Washington Huskies",
+      "school": {
+        "name": "Loyola High School",
+        "slug": "loyola",
+        "id": "699b5254ec1888706a460a1c"
+      },
+      "department": {
+        "name": "Athletics",
+        "slug": "athletics"
+      },
+      "venue": {
+        "name": "Loyola Gymnasium",
+        "slug": "loyola_gym"
+      },
+      "start_at": "2026-03-09T18:30",
+      "end_at": "2026-03-09T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 4
+    },
+    {
+      "event_name": "Swimming Dual Meet: Washington vs Loyola",
+      "school": {
+        "name": "Washington High School",
+        "slug": "washington",
+        "id": "699b5254ec1888706a460a1b"
+      },
+      "department": {
+        "name": "Athletics",
+        "slug": "athletics"
+      },
+      "venue": {
+        "name": "Washington Natatorium",
+        "slug": "washington_pool"
+      },
+      "start_at": "2026-03-12T18:30",
+      "end_at": "2026-03-12T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 5
+    },
+    {
+      "event_name": "Swimming Dual Meet: Loyola vs Washington",
+      "school": {
+        "name": "Loyola High School",
+        "slug": "loyola",
+        "id": "699b5254ec1888706a460a1c"
+      },
+      "department": {
+        "name": "Athletics",
+        "slug": "athletics"
+      },
+      "venue": {
+        "name": "Loyola Natatorium",
+        "slug": "loyola_pool"
+      },
+      "start_at": "2026-03-19T18:30",
+      "end_at": "2026-03-19T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 6
+    },
+    {
+      "event_name": "Theatre: The Glitch in the System",
+      "school": {
+        "name": "Washington High School",
+        "slug": "washington",
+        "id": "699b5254ec1888706a460a1b"
+      },
+      "department": {
+        "name": "Theatre",
+        "slug": "theatre"
+      },
+      "venue": {
+        "name": "Washington Performing Arts Center",
+        "slug": "washington_pac"
+      },
+      "start_at": "2026-03-17T18:30",
+      "end_at": "2026-03-17T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 7
+    },
+    {
+      "event_name": "Theatre: Echoes of the Concrete",
+      "school": {
+        "name": "Loyola High School",
+        "slug": "loyola",
+        "id": "699b5254ec1888706a460a1c"
+      },
+      "department": {
+        "name": "Theatre",
+        "slug": "theatre"
+      },
+      "venue": {
+        "name": "Loyola Performing Arts Center",
+        "slug": "loyola_pac"
+      },
+      "start_at": "2026-03-20T18:30",
+      "end_at": "2026-03-20T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 8
+    },
+    {
+      "event_name": "Music: Washington Lo-Fi & Strings Showcase",
+      "school": {
+        "name": "Washington High School",
+        "slug": "washington",
+        "id": "699b5254ec1888706a460a1b"
+      },
+      "department": {
+        "name": "Music",
+        "slug": "music"
+      },
+      "venue": {
+        "name": "Washington Performing Arts Center",
+        "slug": "washington_pac"
+      },
+      "start_at": "2026-03-22T18:30",
+      "end_at": "2026-03-22T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 9
+    },
+    {
+      "event_name": "Music: Loyola Synth-Pop & Percussion Night",
+      "school": {
+        "name": "Loyola High School",
+        "slug": "loyola",
+        "id": "699b5254ec1888706a460a1c"
+      },
+      "department": {
+        "name": "Music",
+        "slug": "music"
+      },
+      "venue": {
+        "name": "Loyola Performing Arts Center",
+        "slug": "loyola_pac"
+      },
+      "start_at": "2026-03-23T18:30",
+      "end_at": "2026-03-23T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 10
+    },
+    {
+      "event_name": "Dance: Urban Pulse: Street Styles",
+      "school": {
+        "name": "Washington High School",
+        "slug": "washington",
+        "id": "699b5254ec1888706a460a1b"
+      },
+      "department": {
+        "name": "Activities",
+        "slug": "activities"
+      },
+      "venue": {
+        "name": "Washington Auditorium",
+        "slug": "washington_auditorium"
+      },
+      "start_at": "2026-03-30T18:30",
+      "end_at": "2026-03-30T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 11
+    },
+    {
+      "event_name": "Dance: Velocity: A Digital Horizon",
+      "school": {
+        "name": "Loyola High School",
+        "slug": "loyola",
+        "id": "699b5254ec1888706a460a1c"
+      },
+      "department": {
+        "name": "Activities",
+        "slug": "activities"
+      },
+      "venue": {
+        "name": "Loyola Auditorium",
+        "slug": "loyola_auditorium"
+      },
+      "start_at": "2026-04-01T18:30",
+      "end_at": "2026-04-01T20:00",
+      "doors_open_before": 30,
+      "total_tickets": 24,
+      "tickets_sold": 20,
+      "published": true,
+      "eventNumber": 12
+    }
+  ]
+}

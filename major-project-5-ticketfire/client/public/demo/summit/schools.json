@@ -1,0 +1,12 @@
+{
+  "schools": [
+    {
+      "name": "Washington HS",
+      "slug": "washington"
+    },
+    {
+      "name": "Loyola HS",
+      "slug": "loyola"
+    }
+  ]
+}

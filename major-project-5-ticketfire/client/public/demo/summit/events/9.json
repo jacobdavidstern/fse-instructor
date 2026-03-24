@@ -1,0 +1,23 @@
+{
+  "event_name": "Music: Washington Lo-Fi & Strings Showcase",
+  "school": {
+    "name": "Washington High School",
+    "slug": "washington",
+    "id": "699b5254ec1888706a460a1b"
+  },
+  "department": {
+    "name": "Music",
+    "slug": "music"
+  },
+  "venue": {
+    "name": "Washington Performing Arts Center",
+    "slug": "washington_pac"
+  },
+  "start_at": "2026-03-22T18:30",
+  "end_at": "2026-03-22T20:00",
+  "doors_open_before": 30,
+  "total_tickets": 24,
+  "tickets_sold": 20,
+  "published": true,
+  "eventNumber": 9
+}

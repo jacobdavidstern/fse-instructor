@@ -1,9 +1,12 @@
 // client/src/routes/ProtectedRoute.jsx
 
+import { DEMO_MODE } from '../demo';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../auth/useAuth';
 
 const ProtectedRoute = ({ adminOnly = false }) => {
+  if (DEMO_MODE) return <Outlet />;
+
   const { user, loading } = useAuth();
 
   if (loading) return <div>Loading...</div>;

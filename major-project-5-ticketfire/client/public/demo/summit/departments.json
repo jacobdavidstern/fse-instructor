@@ -1,0 +1,20 @@
+{
+  "departments": [
+    {
+      "name": "Theatre",
+      "slug": "theatre"
+    },
+    {
+      "name": "Music",
+      "slug": "music"
+    },
+    {
+      "name": "Activities",
+      "slug": "activities"
+    },
+    {
+      "name": "Athletics",
+      "slug": "athletics"
+    }
+  ]
+}
